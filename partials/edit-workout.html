@@ -1,0 +1,65 @@
+<h1>View/Edit Workout</h1>
+<div ng-repeat="workout in workoutArr">
+  <label>Day:</label>
+  <input type="number" ng-model="editWorkout.day" placeholder="{{workout.day}}"><br>
+
+  <label>Muscle Group</label>
+  <select ng-model="editWorkout.muscle_group" ng-change="fetchExercises(editWorkout.muscle_group)">
+<!--     <option value="" disabled selected>Choose your option</option> -->
+    <option value="" disabled selected>{{workout.muscle_group}}</option>
+    <option value="Chest">Chest</option>
+    <option value="Back">Back</option>
+    <option value="Shoulders">Shoulders</option>
+    <option value="Biceps">Biceps</option>
+    <option value="Triceps">Triceps</option>
+    <option value="Abs">Abs</option>
+    <option value="Quads">Quads</option>
+    <option value="Hamstrings">Hamstrings</option>
+    <option value="Calves">Calves</option>
+  </select><br>
+
+  <select ng-model="editWorkout.goal">
+    <option value="" disabled selected>{{workout.goal}}</option>
+    <option value="Endurance">Muscle Endurance</option>
+    <option value="Growth">Muscle Growth</option>
+    <option value="Strength">Max Strength</option>
+    <option value="Power">Power</option>
+  </select><br>
+
+<div ng-repeat="exercise in exerciseArr">
+    <select ng-model="editExercises.name_1">
+      <option value="" disabled selected>{{exercise.name_1}}</option>
+      <option>{{exercise.name_1}}</option>
+    </select><br>
+    <span>{{editExercises.name_1}}</span>
+  </div>
+
+  <div ng-repeat="exercise in exerciseArr">
+    <div>
+      <label>Reps:</label>
+      <input type="number" ng-model="editExercises.set_1.rep" placeholder="{{exercise.set_1.rep}}"><br>
+      <label>Wt:</label>
+      <input type="number" ng-model="editExercises.set_1.wt" placeholder="{{exercise.set_1.wt}}">
+    </div>
+    <div>
+      <label>Reps:</label>
+      <input type="number" ng-model="editExercises.set_2.rep" placeholder="{{exercise.set_2.rep}}"><br>
+      <label>Wt:</label>
+      <input type="number" ng-model="editExercises.set_2.wt" placeholder="{{exercise.set_2.wt}}">
+    </div>
+    <div>
+      <label>Reps:</label>
+      <input type="number" ng-model="editExercises.set_3.rep" placeholder="{{exercise.set_3.wt}}"><br>
+      <label>Wt:</label>
+      <input type="number" ng-model="editExercises.set_3.wt" placeholder="{{exercise.set_3.wt}}">
+    </div>
+
+<button ng-click="updateUserWorkout(exercise.fbid)">Save</button>
+  </div>
+</div><br><br>
+
+<div>
+  <button>Add Exercise</button>
+</div>
+
+</div><br><br>

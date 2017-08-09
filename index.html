@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Workout Journal</title>
+  <!--Import Materialize-->
+  <!-- <link rel="stylesheet" type="text/css" href="lib/node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection"/> -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body ng-app="WorkoutJournalApp">
+
+  <div ng-include="'partials/navbar.html'">
+  </div>
+
+
+  <div ng-view></div>
+
+
+  <!-- third-party scripts -->
+
+  <!-- Angular Installation -->
+  <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
+  <!-- Jquery Installation -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap Installation -->
+  <!-- <script src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script> -->
+  <!-- Firebase Installation -->
+  <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
+  <!-- Custom Javascript -->
+  <script type="text/javascript" src="custom.js"></script>
+
+  <!-- app files -->
+  <script type="text/javascript" src="app/app.js"></script>
+  <!-- providers -->
+  <script src="app/values/fb-creds.js"></script>
+  <script src="app/factories/user-factory.js"></script>
+  <script src="app/factories/workout-journal-factory.js"></script>
+  <!-- controllers -->
+  <script src="app/controllers/login-controller.js"></script>
+  <script src="app/controllers/home-controller.js"></script>
+  <script src="app/controllers/create-workout-controller.js"></script>
+  <script src="app/controllers/select-exercises-controller.js"></script>
+  <script src="app/controllers/edit-workout-controller.js"></script>
+
+</body>
+</html>

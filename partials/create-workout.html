@@ -1,0 +1,40 @@
+<h1>Create Workout</h1>
+
+<div>
+  <label>Day:</label>
+  <input type="number" ng-model="createWorkout.day"><br>
+  <span>Workout Day: {{createWorkout.day}}</span><br><br>
+
+
+  <label>Muscle Group</label>
+  <select ng-model="createWorkout.muscle_group" ng-change="fetchExercises(createWorkout.muscle_group)">
+<!--     <option value="" disabled selected>Choose your option</option> -->
+    <option value="Chest">Chest</option>
+    <option value="Back">Back</option>
+    <option value="Shoulders">Shoulders</option>
+    <option value="Biceps">Biceps</option>
+    <option value="Triceps">Triceps</option>
+    <option value="Abs">Abs</option>
+    <option value="Quads">Quads</option>
+    <option value="Hamstrings">Hamstrings</option>
+    <option value="Calves">Calves</option>
+  </select><br>
+
+  <span>You are targeting {{createWorkout.muscle_group}} for today's workout</span>
+
+</div><br><br>
+
+  <select ng-model="createWorkout.goal">
+    <option value="" disabled selected>Choose your option</option>
+    <option value="Endurance">Muscle Endurance</option>
+    <option value="Growth">Muscle Growth</option>
+    <option value="Strength">Max Strength</option>
+    <option value="Power">Power</option>
+  </select><br>
+	<span>You are training to increase your {{createWorkout.goal}}</span><br><br>
+
+<footer class="fixed-bottom">
+	<button ng-click="cancelWorkoutCreation()">Cancel</button>
+	<button ng-click="saveWorkout()">Next</button>
+</footer>
+

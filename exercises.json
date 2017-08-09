@@ -1,0 +1,40 @@
+{
+  "exercises": [
+    {
+      "name": "Flat Barbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Incline Barbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Decline Barbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Lateral Pulldown",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Bent Over Row",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Reverse Fly",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Barbell Curl",
+      "muscle-group": "Biceps"
+    },
+    {
+      "name": "Dumbbell Curl",
+      "muscle-group": "Biceps"
+    },
+    {
+      "name": "Preacher Curl",
+      "muscle-group": "Biceps"
+    }
+  ]
+}
