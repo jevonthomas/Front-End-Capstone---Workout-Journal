@@ -7,11 +7,26 @@
     </div>
   </div>
 
+<label>Muscle Group</label>
+<div input-field>
+    <select class="" ng-model="createWorkout.muscle_group" material-select watch ng-change="fetchExercises(createWorkout.muscle_group)">
+      <option value="Chest">Chest</option>
+      <option value="Back">Back</option>
+      <option value="Shoulders">Shoulders</option>
+      <option value="Biceps">Biceps</option>
+      <option value="Triceps">Triceps</option>
+      <option value="Abs">Abs</option>
+      <option value="Quads">Quads</option>
+      <option value="Hamstrings">Hamstrings</option>
+      <option value="Calves">Calves</option>
+    </select>
+</div>
 
-  <label>Muscle Group</label>
-  <select ng-model="createWorkout.muscle_group" ng-change="fetchExercises(createWorkout.muscle_group)">
+
+<!--   <label>Muscle Group</label>
+  <select ng-model="createWorkout.muscle_group" ng-change="fetchExercises(createWorkout.muscle_group)"> -->
 <!--     <option value="" disabled selected>Choose your option</option> -->
-    <option value="Chest">Chest</option>
+<!--     <option value="Chest">Chest</option>
     <option value="Back">Back</option>
     <option value="Shoulders">Shoulders</option>
     <option value="Biceps">Biceps</option>
@@ -20,7 +35,7 @@
     <option value="Quads">Quads</option>
     <option value="Hamstrings">Hamstrings</option>
     <option value="Calves">Calves</option>
-  </select><br>
+  </select><br> -->
 
   <div class="row">
     <div class="input-field col s12">
