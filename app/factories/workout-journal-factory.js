@@ -54,6 +54,22 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+  //select exercise controller
+  //gets exercises associated with the workout to be listed on the DOM
+  //starts on page load
+  let getSelectExercises = (workoutID) => {
+      return $q( (resolve, reject) => {
+      $http.get(`${FirebaseUrl}/planned-workouts.json?orderBy="workoutID"&equalTo="${workoutID}"`)
+      .then( (workoutData) => {
+        resolve(workoutData);
+      })
+      .catch( (err) => {
+        console.log("oops error");
+        reject(err);
+      });
+    });
+  };
+
   let postUserExercises = (exerciseList, workoutURL) => {
       return $q( (resolve, reject) => {
       $http.post(`${FirebaseUrl}/user-exercises/${workoutURL}.json`,
@@ -81,6 +97,7 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+
   let patchUserWorkout = (updatedWorkout, workoutURL) => {
     return $q( (resolve, reject) => {
       $http.patch(`${FirebaseUrl}/user-workouts/${workoutURL}.json`,
@@ -97,7 +114,7 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
 
   let patchUserExercises = (updatedExercises, url) => {
     return $q( (resolve, reject) => {
-      $http.patch(`${FirebaseUrl}/user-exercises/${url}.json`,
+      $http.put(`${FirebaseUrl}/user-exercises/${url}.json`,
         angular.toJson(updatedExercises))
       .then( (workoutData) => {
         resolve(workoutData);
@@ -133,6 +150,48 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
-return { getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
+  let postPlannedWorkout = (plannedWorkout) => {
+    return $q( (resolve, reject) => {
+      $http.post(`${FirebaseUrl}/planned-workouts.json`,
+        angular.toJson(plannedWorkout))
+      .then( (newWorkoutData) => {
+        resolve(newWorkoutData);
+      })
+      .catch( (error) => {
+        reject(error);
+      });
+    });
+  };
+
+  let postFinishedExercise = (finishedWorkout) => {
+      return $q( (resolve, reject) => {
+      $http.post(`${FirebaseUrl}/completed-workouts.json`,
+        angular.toJson(finishedWorkout))
+      .then( (newWorkoutData) => {
+        resolve(newWorkoutData);
+      })
+      .catch( (error) => {
+        reject(error);
+      });
+    });
+  };
+
+  let patchFinishedWorkout = (updatedWorkout, url) => {
+    console.log(url);
+    return $q( (resolve, reject) => {
+      $http.patch(`${FirebaseUrl}/user-workouts/${url}.json`,
+        angular.toJson(updatedWorkout))
+      .then( (workoutData) => {
+        resolve(workoutData);
+      })
+      .catch( (err) => {
+        console.log("oops error");
+        reject(err);
+      });
+    });
+  };
+
+
+return { patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
 
 });

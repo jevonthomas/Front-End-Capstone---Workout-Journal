@@ -37,9 +37,29 @@ workoutJournalApp.config( ($routeProvider) => {
     controller: 'SelectExercisesController',
     resolve: {isAuth}
   })
-  .when('/edit-workout/:editWorkoutFBID', {
-    templateUrl: 'partials/edit-workout.html',
-    controller: 'EditWorkoutController',
+  .when('/view-workout/:viewWorkoutFBID', {
+    templateUrl: 'partials/view-workout.html',
+    controller: 'ViewWorkoutController',
+    resolve: {isAuth}
+  })
+  .when('/record-workout/:viewWorkoutFBID', {
+    templateUrl: 'partials/record-workout.html',
+    controller: 'RecordWorkoutController',
+    resolve: {isAuth}
+  })
+  .when('/create-workout/choose-exercise/:workoutFBID', {
+    templateUrl: 'partials/choose-exercise.html',
+    controller: 'ChooseExercisesController',
+    resolve: {isAuth}
+  })
+  .when('/create-workout/choose-exercise/:workoutFBID/sets/:setURL', {
+    templateUrl: 'partials/sets.html',
+    controller: 'SetsController',
+    resolve: {isAuth}
+  })
+  .when('/start-workout/:startWorkoutFBID', {
+    templateUrl: 'partials/start-workout.html',
+    controller: 'StartWorkoutController',
     resolve: {isAuth}
   })
   .otherwise('/');

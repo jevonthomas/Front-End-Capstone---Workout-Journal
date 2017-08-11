@@ -1,5 +1,36 @@
 .card {
 	border: 1px solid black;
+	background-color: #011640;
+	color: white;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+.card-detail {
+	border: 1px solid black;
+	background-color: #021F59;
+	color: white;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+
+input[type="number"] {
+	width: 100px;
+}
+
+.flex-set {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.sleep {
+	display: flex;
+	flex-direction: column;
 }
 
 // .blue {

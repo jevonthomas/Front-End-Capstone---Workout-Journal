@@ -1,0 +1,30 @@
+<h1>View Workout</h1>
+<div ng-repeat="workout in workoutArr">
+    <div class="card">
+    <h2>Day {{workout.day}}</h2>
+    <h4>{{workout.muscle_group}}</h4>
+    <h4>{{workout.goal}}</h4>
+  </div>
+
+<!-- Exercise List -->
+  <div class="card-detail">
+    <label>Exercises: </label>
+    <div ng-repeat="exercise in exerciseArr">
+      <h2>{{exercise.name_1}}</h2>
+        <div>
+          <label>Set</label>
+          <input type="number" name="">
+        </div>
+      <h2>{{exercise.name_2}}</h2>
+      <h2>{{exercise.name_3}}</h2>
+      <h2>{{exercise.name_4}}</h2>
+      <h2>{{exercise.name_5}}</h2>
+      <h2>{{exercise.name_6}}</h2>
+      <h2>{{exercise.name_7}}</h2>
+      <h2>{{exercise.name_8}}</h2>
+    </div>
+
+  <a ng-href="#!/home"><button>Go Back</button></a>
+  </div>
+
+</div>

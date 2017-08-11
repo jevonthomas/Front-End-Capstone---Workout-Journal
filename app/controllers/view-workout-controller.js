@@ -1,12 +1,8 @@
 "use strict";
 
-workoutJournalApp.controller("SelectExercisesController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
-  $scope.userExercises = {
-    name: "",
-    uid: UserFactory.getUser(),
-    workoutID: $routeParams.workoutFBID
-  };
+
 
   let currentUser = null;
   let testURL = null;
@@ -14,11 +10,13 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
   UserFactory.isAuthenticated(currentUser)
   .then( (user) => {
     currentUser = UserFactory.getUser();
-    fetchSingleWorkout($routeParams.workoutFBID);
-    fetchWorkoutExercises($routeParams.workoutFBID);
-    testURL = $routeParams.workoutFBID;
+    fetchSingleWorkout($routeParams.viewWorkoutFBID);
+    fetchWorkoutExercises($routeParams.viewWorkoutFBID);
+    testURL = $routeParams.viewWorkoutFBID;
   });
 
+  //This function is calle when the page loads
+  //This function gets the workout info for the workout card to be displayed on the DOM
   $scope.workoutArr = [];
   function fetchSingleWorkout(workoutURL) {
       WorkoutJournalFactory.getSingleWorkout(workoutURL)
@@ -30,6 +28,8 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
       });
   }
 
+  //This function is called when the page loads
+  //This function gets all the exercises associated with the viewed workouts
   $scope.workoutExercisesArr = [];
   function fetchWorkoutExercises(workoutURL) {
       WorkoutJournalFactory.getSelectExercises(workoutURL)
@@ -48,29 +48,19 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
   $scope.fetchExercises = (muscleGroup) => {
       WorkoutJournalFactory.getExercises(muscleGroup)
       .then( (exerciseList) => {
-        let exerciseData = exerciseList.data;
-        Object.keys(exerciseData).forEach( (key) => {
-            $scope.exercises.push(exerciseData[key]);
-        });
+          let exerciseData = exerciseList.data;
+          Object.keys(exerciseData).forEach( (key) => {
+              $scope.exercises.push(exerciseData[key]);
+          });
+          console.log("exercises", $scope.exercises);
       })
       .catch( (err) => {
           console.log("error", err);
       });
   };
 
-  $scope.saveUserExercises = () => {
-    $window.location.href = `#!/view-workout/${testURL}`;
-  };
-
-  $scope.cancelCreateWorkout = () => {
-    WorkoutJournalFactory.deleteWorkout($routeParams.workoutFBID)
-    .then( (data) => {
-    $window.location.href = `#!/home`;
-    });
-  };
-
-  $scope.addExercises = () => {
-    $window.location.href = `#!/create-workout/choose-exercise/${testURL}`;
+  $scope.startWorkout = () => {
+    $window.location.href = `#!/start-workout/${testURL}`;
   };
 
 });

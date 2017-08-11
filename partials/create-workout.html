@@ -1,9 +1,11 @@
 <h1>Create Workout</h1>
 
 <div>
-  <label>Day:</label>
-  <input type="number" ng-model="createWorkout.day"><br>
-  <span>Workout Day: {{createWorkout.day}}</span><br><br>
+  <div class="row">
+    <div class="input-field col s12">
+      <input placeholder="1" id="day" type="number" class="validate" ng-model="createWorkout.day">
+    </div>
+  </div>
 
 
   <label>Muscle Group</label>
@@ -20,18 +22,13 @@
     <option value="Calves">Calves</option>
   </select><br>
 
-  <span>You are targeting {{createWorkout.muscle_group}} for today's workout</span>
+  <div class="row">
+    <div class="input-field col s12">
+      <input placeholder="Muscle Growth" id="goal" type="text" class="validate" ng-model="createWorkout.goal">
+    </div>
+  </div>
 
 </div><br><br>
-
-  <select ng-model="createWorkout.goal">
-    <option value="" disabled selected>Choose your option</option>
-    <option value="Endurance">Muscle Endurance</option>
-    <option value="Growth">Muscle Growth</option>
-    <option value="Strength">Max Strength</option>
-    <option value="Power">Power</option>
-  </select><br>
-	<span>You are training to increase your {{createWorkout.goal}}</span><br><br>
 
 <footer class="fixed-bottom">
 	<button ng-click="cancelWorkoutCreation()">Cancel</button>
