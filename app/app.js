@@ -1,6 +1,6 @@
 "use strict";
 
-let workoutJournalApp = angular.module("WorkoutJournalApp", ["ngRoute"])
+let workoutJournalApp = angular.module("WorkoutJournalApp", ["ngRoute", "ui.materialize"])
 .constant("FirebaseUrl", "https://front-end-capstone-b2200.firebaseio.com");
 
 let isAuth = (UserFactory) => {

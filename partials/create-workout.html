@@ -1,52 +1,50 @@
-<h1>Create Workout</h1>
+<div class="container">
 
-<div>
-  <div class="row">
-    <div class="input-field col s12">
-      <input placeholder="1" id="day" type="number" class="validate" ng-model="createWorkout.day">
-    </div>
+<header>
+  <h1>Create Workout</h1>
+</header>
+
+<main>
+  <label>Workout Day</label>
+  <div class="input-field col s12">
+    <input placeholder="1" id="day" type="number" class="validate" ng-model="createWorkout.day">
   </div>
 
-<label>Muscle Group</label>
-<div input-field>
-    <select class="" ng-model="createWorkout.muscle_group" material-select watch ng-change="fetchExercises(createWorkout.muscle_group)">
-      <option value="Chest">Chest</option>
-      <option value="Back">Back</option>
-      <option value="Shoulders">Shoulders</option>
-      <option value="Biceps">Biceps</option>
-      <option value="Triceps">Triceps</option>
-      <option value="Abs">Abs</option>
-      <option value="Quads">Quads</option>
-      <option value="Hamstrings">Hamstrings</option>
-      <option value="Calves">Calves</option>
+  <label>Muscle Group</label>
+  <div input-field>
+      <select class="" ng-model="createWorkout.muscle_group" material-select watch ng-change="fetchExercises(createWorkout.muscle_group)">
+        <option value="" disabled selected>Choose Your Targeted Muscle Group</option>
+        <option value="Chest">Chest</option>
+        <option value="Back">Back</option>
+        <option value="Shoulders">Shoulders</option>
+        <option value="Biceps">Biceps</option>
+        <option value="Triceps">Triceps</option>
+        <option value="Abs">Abs</option>
+        <option value="Quads">Quads</option>
+        <option value="Hamstrings">Hamstrings</option>
+        <option value="Calves">Calves</option>
+      </select>
+  </div>
+
+  <label>Goals</label>
+  <div input-field>
+    <select class="" ng-model="createWorkout.goal" material-select watch>
+      <option value="" disabled selected>Choose Your Goal</option>
+      <option value="Endurance">Muscle Endurance</option>
+      <option value="Growth">Muscle Growth</option>
+      <option value="Strength">Max Strength</option>
+      <option value="Power">Power</option>
     </select>
+  </div>
+
+</main>
 </div>
 
-
-<!--   <label>Muscle Group</label>
-  <select ng-model="createWorkout.muscle_group" ng-change="fetchExercises(createWorkout.muscle_group)"> -->
-<!--     <option value="" disabled selected>Choose your option</option> -->
-<!--     <option value="Chest">Chest</option>
-    <option value="Back">Back</option>
-    <option value="Shoulders">Shoulders</option>
-    <option value="Biceps">Biceps</option>
-    <option value="Triceps">Triceps</option>
-    <option value="Abs">Abs</option>
-    <option value="Quads">Quads</option>
-    <option value="Hamstrings">Hamstrings</option>
-    <option value="Calves">Calves</option>
-  </select><br> -->
-
-  <div class="row">
-    <div class="input-field col s12">
-      <input placeholder="Muscle Growth" id="goal" type="text" class="validate" ng-model="createWorkout.goal">
+  <footer class="page-footer indigo darken-4">
+    <div class="footer-copyright">
+      <div class="container">
+        <button class="black-text left" ng-click="cancelWorkoutCreation()">Cancel</button>
+        <button class="black-text right" ng-click="saveWorkout()">Next</button>
+      </div>
     </div>
-  </div>
-
-</div><br><br>
-
-<footer class="fixed-bottom">
-	<button ng-click="cancelWorkoutCreation()">Cancel</button>
-	<button ng-click="saveWorkout()">Next</button>
-</footer>
-
+  </footer>

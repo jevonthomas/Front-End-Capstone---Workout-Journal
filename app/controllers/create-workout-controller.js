@@ -2,6 +2,8 @@
 
 workoutJournalApp.controller("CreateWorkoutController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
+
+
   $scope.createWorkout = {
     day: "",
     goal: "",

@@ -14,8 +14,6 @@ workoutJournalApp.controller("SetsController", function($scope, $window, $routeP
     workoutID: $routeParams.workoutFBID
   };
 
-  console.log("workout name", $routeParams.workoutFBID);
-
   $scope.saveMyWorkout = () => {
     WorkoutJournalFactory.postPlannedWorkout($scope.exercise);
     $window.location.href = `#!/create-workout/select-exercises/${$routeParams.workoutFBID}`;
