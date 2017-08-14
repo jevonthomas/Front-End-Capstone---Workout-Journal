@@ -11,7 +11,7 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
   .then( (user) => {
     currentUser = UserFactory.getUser();
     testURL = $routeParams.startWorkoutFBID;
-    fetchSingleWorkout($routeParams.viewWorkoutFBID);
+    fetchSingleWorkout($routeParams.startWorkoutFBID);
     fetchWorkoutExercises(testURL);
   });
 
@@ -27,6 +27,20 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
     wt2: "",
     reps3: "",
     wt3: "",
+    reps4: "",
+    wt4: "",
+    reps5: "",
+    wt5: "",
+    reps6: "",
+    wt6: "",
+    reps7: "",
+    wt7: "",
+    reps8: "",
+    wt8: "",
+    reps9: "",
+    wt9: "",
+    reps10: "",
+    wt10: "",
     workoutID: testURL
   };
 
@@ -51,13 +65,19 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
       .then( (workout) => {
         let workoutData = workout.data;
         Object.keys(workoutData).forEach( (key) => {
+          workoutData[key].exerciseId = key;
           $scope.workoutExercisesArr.push(workoutData[key]);
         });
+        console.log($scope.workoutExercisesArr);
       })
       .catch( (err) => {
           console.log("error", err);
       });
   }
+
+  $scope.startExercise = (urlParam) => {
+    $window.location.href = `#!/start-workout/${testURL}/start-exercise/${urlParam}`;
+  };
 
   $scope.saveCompletedExercise = (exerciseName) => {
     $scope.completedWorkout.name = exerciseName;

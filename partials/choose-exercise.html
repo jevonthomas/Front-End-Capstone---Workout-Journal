@@ -1,12 +1,46 @@
-<div class="row">
-  <div class="col s12 m6" ng-repeat="exercise in exercises">
-    <div class="card blue-grey darken-1">
-      <div class="card-content white-text">
-        <span class="card-title">{{exercise.name}}</span>
-      </div>
-      <div class="card-action">
-        <button ng-click="nextPage(exercise.name)">Next</button>
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+      <ul class="right">
+        <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
+      </ul>
+      <ul class="left">
+        <li><a ng-click="goBack()"><i class="material-icons yellow-text">arrow_back</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div ng-repeat="workout in workoutArr">
+    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+  </div>
+</header>
+
+<div class="container">
+  <main>
+    <label>Muscle Group</label>
+    <div input-field>
+        <select class="" ng-model="muscleGroup" material-select watch ng-change="fetchExercises(muscleGroup)">
+          <option value="" disabled selected>Choose Your Targeted Muscle Group</option>
+          <option value="Chest">Chest</option>
+          <option value="Back">Back</option>
+          <option value="Shoulders">Shoulders</option>
+          <option value="Biceps">Biceps</option>
+          <option value="Triceps">Triceps</option>
+          <option value="Abs">Abs</option>
+          <option value="Quads">Quads</option>
+          <option value="Hamstrings">Hamstrings</option>
+          <option value="Calves">Calves</option>
+        </select>
+    </div>
+
+    <div class="row">
+      <div class="col s6" ng-repeat="exercise in exercises">
+        <div class="card" ng-click="nextPage(exercise.name)">
+          <div class="card-content metal white-text">
+            <span class="card-title">{{exercise.name}}</span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 </div>

@@ -1,33 +1,48 @@
-<div class="row">
-<h2>New</h2>
-  <div class="col s12" ng-repeat="myWorkout in myWorkouts">
-    <div class="card blue darken-1" ng-show="myWorkout.isCompleted === false">
-      <div class="card-content white-text">
-        <span class="card-title">Day {{myWorkout.day}}</span>
-        <h4>{{myWorkout.muscle_group}}</h4>
-        <h6>{{myWorkout.goal}}</h6>
-      </div>
-      <div class="card-action">
-        <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home">Delete</a>
-        <a ng-href="#!/view-workout/{{myWorkout.id}}">View</a>
-      </div>
+<nav>
+  <div class="nav-wrapper indigo darken-4">
+    <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+    <ul class="right">
+      <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<h5 class="metal indigo-text">New</h5>
+<div class="container">
+  <div class="row">
+    <div class="col s6" ng-repeat="myWorkout in myWorkouts">
+      <a ng-href="#!/view-workout/{{myWorkout.id}}"><div class="card small" ng-show="myWorkout.isCompleted === false">
+          <div class="card-image">
+            <img src="../images/card-background2.jpg">
+            <span class="card-title z-depth-5 white-text">{{myWorkout.date}}</span>
+          </div>
+        <div class="card-content">
+            <h6>{{myWorkout.goal}}</h6>
+        </div>
+        <div class="card-action">
+          <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home">Delete</a>
+        </div>
+      </div></a>
     </div>
   </div>
 </div>
 
-<div class="row">
-<h2>Completed</h2>
-  <div class="col s12" ng-repeat="myWorkout in myWorkouts">
-    <div class="card blue darken-1" ng-show="myWorkout.isCompleted === true">
-      <div class="card-content white-text">
-        <span class="card-title">Day {{myWorkout.day}}</span>
-        <h4>{{myWorkout.muscle_group}}</h4>
-        <h6>{{myWorkout.goal}}</h6>
-      </div>
-      <div class="card-action">
-        <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home">Delete</a>
-        <a ng-href="#!/view-workout/{{myWorkout.id}}">View</a>
-      </div>
+<h5 class="metal indigo-text">Completed</h5>
+<div class="container">
+  <div class="row">
+    <div class="col s6" ng-repeat="myWorkout in myWorkouts">
+      <a ng-href="#!/view-workout/{{myWorkout.id}}"><div class="card small" ng-show="myWorkout.isCompleted === true">
+          <div class="card-image">
+            <img src="../images/card-background2.jpg">
+            <span class="card-title z-depth-5 white-text">{{myWorkout.date}}</span>
+          </div>
+        <div class="card-content">
+            <h6>{{myWorkout.goal}}</h6>
+        </div>
+        <div class="card-action">
+          <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home">Delete</a>
+        </div>
+      </div></a>
     </div>
   </div>
 </div>

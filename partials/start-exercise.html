@@ -1,0 +1,111 @@
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+      <ul class="right">
+        <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
+      </ul>
+      <ul class="left">
+        <li><a ng-click="goBack()"><i class="material-icons yellow-text">arrow_back</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div ng-repeat="workout in workoutArr">
+    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+  </div>
+</header>
+
+<div ng-repeat="ex in exerciseArr">
+<div class="row">
+    <div class="col s12">
+      <div class="card white indigo-text">
+        <h5>{{ex.name}}</h5>
+        <div class="card-content flex-set">
+          <div class="sleep col s4">
+            <h6>Set 1</h6>
+            <div>
+              <div>
+                <label>Reps: </label>
+                <input type="number" ng-model="completedExercise.reps1" style="width: 3em"><span>/ {{ex.reps1}}</span>
+              </div>
+              <div>
+                <label>Wt: </label>
+                <input type="number" ng-model="completedExercise.wt1" style="width: 3em"><span>/ {{ex.wt1}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="sleep col s4">
+            <h6>Set 2</h6>
+            <div>
+              <div>
+                <label>Reps: </label>
+                <input type="number" ng-model="completedExercise.reps2" style="width: 3em"><span>/ {{ex.reps2}}</span>
+              </div>
+              <div>
+                <label>Wt: </label>
+                <input type="number" ng-model="completedExercise.wt2" style="width: 3em"><span>/ {{ex.wt2}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="sleep col s4">
+            <h6>Set 3</h6>
+            <div>
+              <div>
+                <label>Reps: </label>
+                <input type="number" ng-model="completedExercise.reps3" style="width: 3em"><span>/ {{ex.reps3}}</span>
+              </div>
+              <div>
+                <label>Wt: </label>
+                <input type="number" ng-model="completedExercise.wt3" style="width: 3em"><span>/ {{ex.wt3}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="sleep col s4">
+            <h6>Set 4</h6>
+            <div>
+              <div>
+                <label>Reps: </label>
+                <input type="number" ng-model="completedExercise.reps4" style="width: 3em"><span>/ {{ex.reps4}}</span>
+              </div>
+              <div>
+                <label>Wt: </label>
+                <input type="number" ng-model="completedExercise.wt4" style="width: 3em"><span>/ {{ex.wt4}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="sleep col s4">
+            <h6>Set 5</h6>
+            <div>
+              <div>
+                <label>Reps: </label>
+                <input type="number" ng-model="completedExercise.reps5" style="width: 3em"><span>/ {{ex.reps5}}</span>
+              </div>
+              <div>
+                <label>Wt: </label>
+                <input type="number" ng-model="completedExercise.wt5" style="width: 3em"><span>/ {{ex.wt5}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="sleep col s4">
+            <h6>Set 6</h6>
+            <div>
+              <div>
+                <label>Reps: </label>
+                <input type="number" ng-model="completedExercise.reps6" style="width: 3em"><span>/ {{ex.reps6}}</span>
+              </div>
+              <div>
+                <label>Wt: </label>
+                <input type="number" ng-model="completedExercise.wt6" style="width: 3em"><span>/ {{ex.wt6}}</span>
+              </div>
+            </div>
+          </div>
+
+        <a class="btn yellow indigo-text" ng-click="saveCompletedExercise(ex.name)">Done</a>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- END CONTAINER -->

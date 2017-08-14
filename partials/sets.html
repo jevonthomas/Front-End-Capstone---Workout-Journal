@@ -1,47 +1,52 @@
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+      <ul class="right">
+        <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
+      </ul>
+      <ul class="left">
+        <li><a ng-click="goBack()"><i class="material-icons yellow-text">arrow_back</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div ng-repeat="workout in workoutArr">
+    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+  </div>
+</header>
+
 <div class="container">
-	<div class="row">
+	<div id="set" class="row">
 
-		<div class="card col s4">
-			<div class="col s12">
-				<h5>Set 1</h5>
-			</div>
-			<div input-field class="col s6">
-			  <label>Reps:</label>
-			  <input type="number" ng-model="exercise.reps1" length="3">
-			</div>
-			<div input-field class="col s6">
-			  <label>Weight:</label>
-			  <input type="number" ng-model="exercise.wt1" length="3">
-			</div>
+		<div input-field>
+			<label>How Many Sets Do You Want To Perform</label>
+	    <select class="" ng-model="myNumber" material-select watch>
+	        <option>1</option>
+	        <option>2</option>
+	        <option>3</option>
+	        <option>4</option>
+	        <option>5</option>
+	        <option>6</option>
+	        <option>7</option>
+	        <option>8</option>
+	        <option>9</option>
+	        <option>10</option>
+	    </select>
 		</div>
 
-		<div class="card col s4">
-			<div class="col s12">
-				<h5>Set 2</h5>
-			</div>
-			<div input-field class="col s6">
-			  <label>Reps:</label>
-			  <input type="number" ng-model="exercise.reps2" length="3">
-			</div>
-			<div input-field class="col s6">
-			  <label>Weight:</label>
-			  <input type="number" ng-model="exercise.wt2" length="3">
-			</div>
-		</div>
-
-		<div class="card col s4">
-			<div class="col s12">
-				<h5>Set 3</h5>
-			</div>
-			<div input-field class="col s6">
-			  <label>Reps:</label>
-			  <input type="number" ng-model="exercise.reps3" length="3">
-			</div>
-			<div input-field class="col s6">
-			  <label>Weight:</label>
-			  <input type="number" ng-model="exercise.wt3" length="3">
-			</div>
-		</div>
+		<div ng-hide="isEven(myNumber)" class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 1</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.reps1">
+      </div>
+      <div input-field class="col s6">
+        <label>Weight:</label>
+        <input type="number" ng-model="exercise.wt1">
+      </div>
+    </div>
 
 	</div>
 <button ng-click="saveMyWorkout()">Save</button>

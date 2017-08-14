@@ -62,5 +62,10 @@ workoutJournalApp.config( ($routeProvider) => {
     controller: 'StartWorkoutController',
     resolve: {isAuth}
   })
+  .when('/start-workout/:startWorkoutFBID/start-exercise/:exerciseID', {
+    templateUrl: 'partials/start-exercise.html',
+    controller: 'StartExerciseController',
+    resolve: {isAuth}
+  })
   .otherwise('/');
 });

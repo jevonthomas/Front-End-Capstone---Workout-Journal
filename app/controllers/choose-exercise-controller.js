@@ -17,7 +17,6 @@ workoutJournalApp.controller("ChooseExercisesController", function($scope, $wind
       WorkoutJournalFactory.getSingleWorkout(workoutURL)
       .then( (workout) => {
         $scope.workoutArr.push(workout.data);
-        fetchExercises();
       })
       .catch( (err) => {
           console.log("error", err);
@@ -25,8 +24,8 @@ workoutJournalApp.controller("ChooseExercisesController", function($scope, $wind
   }
 
   $scope.exercises = [];
-  function fetchExercises() {
-      WorkoutJournalFactory.getExercises($scope.workoutArr[0].muscle_group)
+  $scope.fetchExercises = (muscleGroup) => {
+      WorkoutJournalFactory.getExercises(muscleGroup)
       .then( (exerciseList) => {
         let exerciseData = exerciseList.data;
         Object.keys(exerciseData).forEach( (key) => {
@@ -36,7 +35,7 @@ workoutJournalApp.controller("ChooseExercisesController", function($scope, $wind
       .catch( (err) => {
           console.log("error", err);
       });
-  }
+  };
 
   $scope.nextPage = (name) => {
     $window.location.href = `#!/create-workout/choose-exercise/${$routeParams.workoutFBID}/sets/${name}`;

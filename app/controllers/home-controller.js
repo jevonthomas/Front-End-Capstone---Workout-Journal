@@ -1,6 +1,6 @@
 "use strict";
 
-workoutJournalApp.controller("HomeController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("HomeController", function($route, $scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
 	let currentUser = null;
 

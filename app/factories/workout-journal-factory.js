@@ -165,7 +165,7 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
 
   let postFinishedExercise = (finishedWorkout) => {
       return $q( (resolve, reject) => {
-      $http.post(`${FirebaseUrl}/completed-workouts.json`,
+      $http.post(`${FirebaseUrl}/completed-exercises.json`,
         angular.toJson(finishedWorkout))
       .then( (newWorkoutData) => {
         resolve(newWorkoutData);
@@ -191,7 +191,23 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+  //start-exercise-controller calls this function to get
+  //the exercise that the user is currently performing
+  let getCurrentExercise = (url) => {
+    return $q( (resolve, reject) => {
+      $http.get(`${FirebaseUrl}/planned-workouts/${url}.json`)
+      .then( (exerciseData) => {
+        resolve(exerciseData);
+        console.log("factory get", exerciseData);
+      })
+      .catch( (err) => {
+        console.log("oops error");
+        reject(err);
+      });
+    });
+  };
 
-return { patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
+
+return { getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
 
 });

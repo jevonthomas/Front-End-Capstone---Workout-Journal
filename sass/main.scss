@@ -1,3 +1,7 @@
+html {
+	min-height: 100vh;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -6,4 +10,12 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.metal {
+	background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  margin: 0;
+  padding: 15px;
 }

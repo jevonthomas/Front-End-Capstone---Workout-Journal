@@ -65,12 +65,19 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
   $scope.cancelCreateWorkout = () => {
     WorkoutJournalFactory.deleteWorkout($routeParams.workoutFBID)
     .then( (data) => {
-    $window.location.href = `#!/home`;
+      $window.location.href = `#!/home`;
     });
   };
 
   $scope.addExercises = () => {
     $window.location.href = `#!/create-workout/choose-exercise/${testURL}`;
+  };
+
+  $scope.goBack = () => {
+    WorkoutJournalFactory.deleteWorkout($routeParams.workoutFBID)
+    .then( (data) => {
+      $window.history.back();
+    });
   };
 
 });
