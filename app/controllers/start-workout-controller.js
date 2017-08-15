@@ -11,24 +11,16 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
   .then( (user) => {
     currentUser = UserFactory.getUser();
     testURL = $routeParams.startWorkoutFBID;
-    fetchSingleWorkout($routeParams.viewWorkoutFBID);
+    fetchSingleWorkout($routeParams.startWorkoutFBID);
     fetchWorkoutExercises(testURL);
   });
 
+  //Gets added to the workout profile to signify that the workout has been completed
+  //Used for the home screen to divide new and completed workouts
   $scope.createWorkout = {
     isCompleted: true
   };
 
-  $scope.completedWorkout = {
-    name: "",
-    reps1: "",
-    wt1: "",
-    reps2: "",
-    wt2: "",
-    reps3: "",
-    wt3: "",
-    workoutID: testURL
-  };
 
   //This function is calle when the page loads
   //This function gets the workout info for the workout card to be displayed on the DOM
@@ -51,19 +43,23 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
       .then( (workout) => {
         let workoutData = workout.data;
         Object.keys(workoutData).forEach( (key) => {
+          workoutData[key].exerciseId = key;
           $scope.workoutExercisesArr.push(workoutData[key]);
         });
+        console.log($scope.workoutExercisesArr);
       })
       .catch( (err) => {
           console.log("error", err);
       });
   }
 
-  $scope.saveCompletedExercise = (exerciseName) => {
-    $scope.completedWorkout.name = exerciseName;
-    WorkoutJournalFactory.postFinishedExercise($scope.completedWorkout);
+
+  //Takes the user to the start exercise page
+  $scope.startExercise = (urlParam) => {
+    $window.location.href = `#!/start-workout/${testURL}/start-exercise/${urlParam}`;
   };
 
+  //Updates the workout profile to complete and returns the user to home page
   $scope.updateWorkout = () => {
     WorkoutJournalFactory.patchFinishedWorkout($scope.createWorkout, testURL);
     $window.location.href = `#!/home`;

@@ -1,52 +1,69 @@
-<h1>Create Workout</h1>
-
-<div>
-  <div class="row">
-    <div class="input-field col s12">
-      <input placeholder="1" id="day" type="number" class="validate" ng-model="createWorkout.day">
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo">WORKOUT JOURNAL</a>
+      <ul class="left">
+        <li><a class="yellow-text" ng-click="cancelWorkoutCreation()">Cancel</a></li>
+      </ul>
+      <ul class="right">
+        <li><a class="yellow-text" ng-click="saveWorkout()">Next</a></li>
+      </ul>
     </div>
+  </nav>
+<h5 class="metal indigo-text">Create Workout</h5>
+</header>
+
+<div class="container">
+
+<main>
+  <label>Input Workout Day</label>
+  <div class="input-field col s12">
+    <input ng-model="createWorkout.day" placeholder="1" id="day" type="number" class="validate">
   </div>
 
-<label>Muscle Group</label>
-<div input-field>
-    <select class="" ng-model="createWorkout.muscle_group" material-select watch ng-change="fetchExercises(createWorkout.muscle_group)">
-      <option value="Chest">Chest</option>
-      <option value="Back">Back</option>
-      <option value="Shoulders">Shoulders</option>
-      <option value="Biceps">Biceps</option>
-      <option value="Triceps">Triceps</option>
-      <option value="Abs">Abs</option>
-      <option value="Quads">Quads</option>
-      <option value="Hamstrings">Hamstrings</option>
-      <option value="Calves">Calves</option>
+  <label for="inputCreated">Select Workout Date</label>
+  <input ng-model="createWorkout.date" placeholder="mm/dd/yyyy" input-date
+      type="text"
+      name="created"
+      id="inputCreated"
+      ng-model="currentTime"
+      container=""
+      format="mm/dd/yyyy"
+      months-full="{{ month }}"
+      months-short="{{ monthShort }}"
+      weekdays-full="{{ weekdaysFull }}"
+      weekdays-short="{{ weekdaysShort }}"
+      weekdays-letter="{{ weekdaysLetter }}"
+      disable="disable"
+      min="{{ minDate }}"
+      max="{{ maxDate }}"
+      today="today"
+      first-day="1"
+      clear="clear"
+      close="close"
+      select-years="15"
+      on-start="onStart()"
+      on-render="onRender()"
+      on-open="onOpen()"
+      on-close="onClose()"
+      on-set="onSet()"
+      on-stop="onStop()" />
+
+  <label>Goals</label>
+  <div input-field>
+    <select class="" ng-model="createWorkout.goal" material-select watch>
+      <option value="" disabled selected>Choose Your Goal</option>
+      <option value="Endurance">Muscle Endurance</option>
+      <option value="Growth">Muscle Growth</option>
+      <option value="Strength">Max Strength</option>
+      <option value="Power">Power</option>
     </select>
+  </div>
+
+
+</main>
 </div>
 
+<footer>
 
-<!--   <label>Muscle Group</label>
-  <select ng-model="createWorkout.muscle_group" ng-change="fetchExercises(createWorkout.muscle_group)"> -->
-<!--     <option value="" disabled selected>Choose your option</option> -->
-<!--     <option value="Chest">Chest</option>
-    <option value="Back">Back</option>
-    <option value="Shoulders">Shoulders</option>
-    <option value="Biceps">Biceps</option>
-    <option value="Triceps">Triceps</option>
-    <option value="Abs">Abs</option>
-    <option value="Quads">Quads</option>
-    <option value="Hamstrings">Hamstrings</option>
-    <option value="Calves">Calves</option>
-  </select><br> -->
-
-  <div class="row">
-    <div class="input-field col s12">
-      <input placeholder="Muscle Growth" id="goal" type="text" class="validate" ng-model="createWorkout.goal">
-    </div>
-  </div>
-
-</div><br><br>
-
-<footer class="fixed-bottom">
-	<button ng-click="cancelWorkoutCreation()">Cancel</button>
-	<button ng-click="saveWorkout()">Next</button>
 </footer>
-

@@ -1,30 +1,54 @@
-<div ng-repeat="workout in workoutArr">
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <h2>Day {{workout.day}}</h2>
-          <h4>{{workout.muscle_group}}</h4>
-          <h4>{{workout.goal}}</h4>
-        </div>
-      </div>
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+      <ul class="right">
+        <li><a ng-href="#!/create-workout"><span class="yellow-text">Edit</span></a></li>
+      </ul>
+      <ul class="left">
+        <li><a ng-href="#!/home"><i class="material-icons yellow-text">arrow_back</i></a></li>
+      </ul>
     </div>
+  </nav>
+  <div ng-repeat="workout in workoutArr">
+    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
   </div>
-</div>
+</header>
 
-<div ng-repeat="exercise in workoutExercisesArr">
-  <div class="row">
-    <div class="col s12 m6">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <h2>{{exercise.name}}</h2>
-        </div>
+<div class="container">
+  <main>
+    <div ng-repeat="exercise in workoutExercisesArr">
+      <div class="section">
+        <h5>{{exercise.name}}</h5>
+      <table class="bordered striped">
+        <thead>
+          <tr>
+              <th>Set</th>
+              <th>1</th>
+              <th>2</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <th>Reps</th>
+            <td>{{exercise.rep1}}</td>
+            <td>{{exercise.rep2}}</td>
+          </tr>
+          <tr>
+            <th>Weight</th>
+            <td>{{exercise.wt1}}</td>
+            <td>{{exercise.wt2}}</td>
+          </tr>
+        </tbody>
+      </table>
       </div>
+      <div class="divider"></div>
     </div>
-  </div>
-</div>
 
-<footer class="fixed-bottom">
-<!--   <button ng-click="cancelCreateWorkout()">Cancel</button> -->
-  <button ng-click="startWorkout()">Start Workout</button>
-</footer>
+  </main>
+
+<div ng-hide="exercise.isCompleted === true" class="row">
+  <a ng-click="startWorkout()" class="yellow accent-4 col s12 waves-effect waves-light btn indigo-text">START WORKOUT</a>
+</div>
+</div>

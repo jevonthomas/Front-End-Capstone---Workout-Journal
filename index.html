@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Workout Journal</title>
-  <!--Import Materialize-->
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"> -->
+  <link rel="stylesheet" href="lib/node_modules/materialize-css/dist/css/materialize.min.css">
+<!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--     <link rel="stylesheet" href="lib/bower_components/jquery.terminal/css/jquery.terminal.css">
+-->
+  <script type="text/javascript" src="lib/node_modules/jquery/dist/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body ng-app="WorkoutJournalApp">
 
-  <div ng-include="'partials/navbar.html'">
-  </div>
-
+ <!--  <div ng-include="'partials/navbar.html'">
+  </div> -->
 
   <div ng-view></div>
 
 
-  <!-- third-party scripts -->
-
-  <!-- Angular Installation -->
+<!-- ANGULAR -->
   <script type="text/javascript" src="lib/node_modules/angular/angular.min.js"></script>
   <script type="text/javascript" src="lib/node_modules/angular-route/angular-route.min.js"></script>
-  <!-- Jquery Installation -->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <!-- Materialize Installation -->
-  <!-- JavaScript for: jQuery, angular, materialize, and angular-materialize. All of which are needed. -->
- <!--    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script> -->
+
+<!-- MATERIALIZE -->
+<!--     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script> -->
+  <script type="text/javascript" src="lib/node_modules/materialize-css/dist/js/materialize.min.js"></script>
+<!--     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script> -->
+  <script type="text/javascript" src="lib/node_modules/angular-materialize/src/angular-materialize.min.js"></script>
   <!-- Firebase Installation -->
   <script type="text/javascript" src="lib/node_modules/firebase/firebase.js"></script>
-  <!-- Custom Javascript -->
-<!--   <script type="text/javascript" src="custom.js"></script> -->
+  <!-- Custom JS -->
+  <script type="text/javascript" src="custom.js"></script>
 
   <!-- app files -->
   <script type="text/javascript" src="app/app.js"></script>
@@ -51,6 +47,7 @@
   <script src="app/controllers/choose-exercise-controller.js"></script>
   <script src="app/controllers/sets-controller.js"></script>
   <script src="app/controllers/start-workout-controller.js"></script>
+  <script src="app/controllers/start-exercise-controller.js"></script>
 
 </body>
 </html>

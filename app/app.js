@@ -1,6 +1,6 @@
 "use strict";
 
-let workoutJournalApp = angular.module("WorkoutJournalApp", ["ngRoute"])
+let workoutJournalApp = angular.module("WorkoutJournalApp", ["ngRoute", "ui.materialize"])
 .constant("FirebaseUrl", "https://front-end-capstone-b2200.firebaseio.com");
 
 let isAuth = (UserFactory) => {
@@ -60,6 +60,11 @@ workoutJournalApp.config( ($routeProvider) => {
   .when('/start-workout/:startWorkoutFBID', {
     templateUrl: 'partials/start-workout.html',
     controller: 'StartWorkoutController',
+    resolve: {isAuth}
+  })
+  .when('/start-workout/:startWorkoutFBID/start-exercise/:exerciseID', {
+    templateUrl: 'partials/start-exercise.html',
+    controller: 'StartExerciseController',
     resolve: {isAuth}
   })
   .otherwise('/');

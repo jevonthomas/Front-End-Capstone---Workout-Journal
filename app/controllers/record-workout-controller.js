@@ -19,6 +19,7 @@ workoutJournalApp.controller("RecordWorkoutController", function($scope, $window
     name_6: "",
     name_7: "",
     name_8: "",
+    isCompleted: true,
     uid: UserFactory.getUser(),
     workoutID: $routeParams.viewWorkoutFBID
   };
