@@ -2,32 +2,9 @@
 
 workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseUrl, UserFactory) {
 
-  function getExercises (muscleGroup) {
-    return $q( (resolve, reject) => {
-      $http.get(`${FirebaseUrl}/exercises.json?orderBy="muscle-group"&equalTo="${muscleGroup}"`)
-      .then( (exercisesData) => {
-        resolve(exercisesData);
-      })
-      .catch( (err) => {
-        console.log("error", err);
-        reject(err);
-      });
-    });
-  }
-
-  let postNewWorkout = (newWorkout) => {
-    return $q( (resolve, reject) => {
-      $http.post(`${FirebaseUrl}/user-workouts.json`,
-        angular.toJson(newWorkout))
-      .then( (newWorkoutData) => {
-        resolve(newWorkoutData);
-      })
-      .catch( (error) => {
-        reject(error);
-      });
-    });
-  };
-
+  //This function is called by home controller
+  //performs a get that gets all of the user created workout profiles
+  //based on user
   let getWorkouts = () => {
     return $q( (resolve, reject) => {
       $http.get(`${FirebaseUrl}/user-workouts.json?orderBy="uid"&equalTo="${UserFactory.getUser()}"`)
@@ -41,6 +18,37 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+  function getExercises (muscleGroup) {
+    return $q( (resolve, reject) => {
+      $http.get(`${FirebaseUrl}/exercises.json?orderBy="muscle-group"&equalTo="${muscleGroup}"`)
+      .then( (exercisesData) => {
+        resolve(exercisesData);
+      })
+      .catch( (err) => {
+        console.log("error", err);
+        reject(err);
+      });
+    });
+  }
+
+  //Posts a workout profile object to firebase
+  //called by create workout controller
+  let postNewWorkout = (newWorkout) => {
+    return $q( (resolve, reject) => {
+      $http.post(`${FirebaseUrl}/user-workouts.json`,
+        angular.toJson(newWorkout))
+      .then( (newWorkoutData) => {
+        resolve(newWorkoutData);
+      })
+      .catch( (error) => {
+        reject(error);
+      });
+    });
+  };
+
+
+  //Function is called by select exercises controller, start workout controller, and choose exercise controller
+  //used to get the previously selected workout profile
   let getSingleWorkout = (workoutURL) => {
       return $q( (resolve, reject) => {
       $http.get(`${FirebaseUrl}/user-workouts/${workoutURL}.json`)
@@ -54,7 +62,7 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
-  //select exercise controller
+  //select exercise controller, start workout controller, and view workout controller
   //gets exercises associated with the workout to be listed on the DOM
   //starts on page load
   let getSelectExercises = (workoutID) => {
@@ -126,6 +134,7 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+  //Performs a delete on the specified workout profile
   let deleteWorkout = (url) => {
     return $q( (resolve, reject) => {
         $http.delete(`${FirebaseUrl}/user-workouts/${url}.json`)
@@ -138,6 +147,7 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+  //Performs a delete on the exercises associated with the deleted workout profile
   let deleteWorkoutExercises = (url) => {
     return $q( (resolve, reject) => {
         $http.delete(`${FirebaseUrl}/user-exercises/${url}.json`)
@@ -150,6 +160,8 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+
+  //Called by sets controller to post an exercise's planned sets
   let postPlannedWorkout = (plannedWorkout) => {
     return $q( (resolve, reject) => {
       $http.post(`${FirebaseUrl}/planned-workouts.json`,
@@ -163,9 +175,11 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
-  let postFinishedExercise = (finishedWorkout) => {
+
+  //Called by start exercise controller
+  let postFinishedExercise = (finishedWorkout, url) => {
       return $q( (resolve, reject) => {
-      $http.post(`${FirebaseUrl}/completed-exercises.json`,
+      $http.patch(`${FirebaseUrl}/planned-workouts/${url}.json`,
         angular.toJson(finishedWorkout))
       .then( (newWorkoutData) => {
         resolve(newWorkoutData);
@@ -176,6 +190,8 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+  //Called by start workout controller
+  //Used to update the workout profile with a completed status
   let patchFinishedWorkout = (updatedWorkout, url) => {
     console.log(url);
     return $q( (resolve, reject) => {
@@ -208,6 +224,22 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
   };
 
 
-return { getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
+  //called by view workout exercises
+  //used to get results of completed exercises associated with slected 
+  //workout profile
+  let getCompletedExercises = (url) => {
+      return $q( (resolve, reject) => {
+      $http.get(`${FirebaseUrl}/completed-exercises.json?orderBy="workoutID"&equalTo="${url}"`)
+      .then( (workoutData) => {
+        resolve(workoutData);
+      })
+      .catch( (err) => {
+        console.log("oops error");
+        reject(err);
+      });
+    });
+  };
+
+return { getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
 
 });

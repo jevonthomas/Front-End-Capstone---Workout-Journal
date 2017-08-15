@@ -2,6 +2,7 @@
 
 workoutJournalApp.controller("CreateWorkoutController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
+  //Workout profile object to be posted to firebase after user inputs the values
   $scope.createWorkout = {
     day: "",
     date: "",
@@ -10,6 +11,9 @@ workoutJournalApp.controller("CreateWorkoutController", function($scope, $window
     uid: UserFactory.getUser()
   };
 
+  //Calls a post function in the wj factory with the workout profile
+  //object as an argument
+  //Takes the user to the select exercises page
   $scope.saveWorkout = () => {
     WorkoutJournalFactory.postNewWorkout($scope.createWorkout)
     .then( (data) => {
@@ -17,10 +21,14 @@ workoutJournalApp.controller("CreateWorkoutController", function($scope, $window
     });
   };
 
+  //Returns the user to home page
   $scope.cancelWorkoutCreation = () => {
     $window.location.href = `#!/home`;
   };
 
+
+  //Angular clock
+  //Will replace with an input element
   var currentTime = new Date();
   $scope.currentTime = currentTime;
   $scope.month = ['Januar', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

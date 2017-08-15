@@ -15,34 +15,12 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
     fetchWorkoutExercises(testURL);
   });
 
+  //Gets added to the workout profile to signify that the workout has been completed
+  //Used for the home screen to divide new and completed workouts
   $scope.createWorkout = {
     isCompleted: true
   };
 
-  $scope.completedWorkout = {
-    name: "",
-    reps1: "",
-    wt1: "",
-    reps2: "",
-    wt2: "",
-    reps3: "",
-    wt3: "",
-    reps4: "",
-    wt4: "",
-    reps5: "",
-    wt5: "",
-    reps6: "",
-    wt6: "",
-    reps7: "",
-    wt7: "",
-    reps8: "",
-    wt8: "",
-    reps9: "",
-    wt9: "",
-    reps10: "",
-    wt10: "",
-    workoutID: testURL
-  };
 
   //This function is calle when the page loads
   //This function gets the workout info for the workout card to be displayed on the DOM
@@ -75,15 +53,13 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
       });
   }
 
+
+  //Takes the user to the start exercise page
   $scope.startExercise = (urlParam) => {
     $window.location.href = `#!/start-workout/${testURL}/start-exercise/${urlParam}`;
   };
 
-  $scope.saveCompletedExercise = (exerciseName) => {
-    $scope.completedWorkout.name = exerciseName;
-    WorkoutJournalFactory.postFinishedExercise($scope.completedWorkout);
-  };
-
+  //Updates the workout profile to complete and returns the user to home page
   $scope.updateWorkout = () => {
     WorkoutJournalFactory.patchFinishedWorkout($scope.createWorkout, testURL);
     $window.location.href = `#!/home`;

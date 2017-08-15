@@ -2,6 +2,7 @@
 
 workoutJournalApp.controller("SelectExercisesController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
+  //Exercise profile to be posted to firebase after user input
   $scope.userExercises = {
     name: "",
     uid: UserFactory.getUser(),
@@ -19,6 +20,11 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
     testURL = $routeParams.workoutFBID;
   });
 
+
+  //This function is called when the page loads
+  //calls a get function in wj factory to get the workout profile object
+  //that was just created, sending the user to this page
+  //Sole purpose is to have the workout profile displayed while the user selects their exercises
   $scope.workoutArr = [];
   function fetchSingleWorkout(workoutURL) {
       WorkoutJournalFactory.getSingleWorkout(workoutURL)
@@ -30,6 +36,9 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
       });
   }
 
+
+  //When the page loads, this function is called to get all user exercises
+  //associated with the selected workout profile
   $scope.workoutExercisesArr = [];
   function fetchWorkoutExercises(workoutURL) {
       WorkoutJournalFactory.getSelectExercises(workoutURL)
@@ -44,24 +53,12 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
       });
   }
 
-  $scope.exercises = [];
-  $scope.fetchExercises = (muscleGroup) => {
-      WorkoutJournalFactory.getExercises(muscleGroup)
-      .then( (exerciseList) => {
-        let exerciseData = exerciseList.data;
-        Object.keys(exerciseData).forEach( (key) => {
-            $scope.exercises.push(exerciseData[key]);
-        });
-      })
-      .catch( (err) => {
-          console.log("error", err);
-      });
-  };
-
+  //Takes user back to the view workout page
   $scope.saveUserExercises = () => {
     $window.location.href = `#!/view-workout/${testURL}`;
   };
 
+  //Deletes workout profile and all associated user exercises
   $scope.cancelCreateWorkout = () => {
     WorkoutJournalFactory.deleteWorkout($routeParams.workoutFBID)
     .then( (data) => {
@@ -69,15 +66,9 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
     });
   };
 
+  //Takes user to the choose exercise page
   $scope.addExercises = () => {
     $window.location.href = `#!/create-workout/choose-exercise/${testURL}`;
-  };
-
-  $scope.goBack = () => {
-    WorkoutJournalFactory.deleteWorkout($routeParams.workoutFBID)
-    .then( (data) => {
-      $window.history.back();
-    });
   };
 
 });

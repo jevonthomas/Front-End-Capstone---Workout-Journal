@@ -4,18 +4,19 @@ workoutJournalApp.controller("StartExerciseController", function($scope, $window
 
   $scope.completedExercise = {
     name: "",
-    reps1: "",
-    wt1: "",
-    reps2: "",
-    wt2: "",
-    reps3: "",
-    wt3: "",
-    reps4: "",
-    wt4: "",
-    reps5: "",
-    wt5: "",
-    reps6: "",
-    wt6: "",
+    compReps1: "",
+    compWt1: "",
+    compReps2: "",
+    compWt2: "",
+    compReps3: "",
+    compWt3: "",
+    compReps4: "",
+    compWt4: "",
+    compReps5: "",
+    compWt5: "",
+    compReps6: "",
+    compWt6: "",
+    isCompleted: true,
     workoutID: $routeParams.startWorkoutFBID
   };
 
@@ -43,9 +44,11 @@ workoutJournalApp.controller("StartExerciseController", function($scope, $window
       });
   }
 
+  //Updates the exercise profile with the user's recorded performance
   $scope.saveCompletedExercise = (exerciseName) => {
     $scope.completedExercise.name = exerciseName;
-    WorkoutJournalFactory.postFinishedExercise($scope.completedExercise);
+    WorkoutJournalFactory.postFinishedExercise($scope.completedExercise, $routeParams.exerciseID);
+    $window.history.back();
   };
 
 });
