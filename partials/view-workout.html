@@ -1,17 +1,18 @@
-<header>
+<header ng-repeat="workout in workoutArr">
   <nav>
     <div class="nav-wrapper indigo darken-4">
       <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
       <ul class="right">
-        <li><a ng-href="#!/create-workout"><span class="yellow-text">Edit</span></a></li>
+        <li ng-show="workout.isCompleted === true"><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
+        <li ng-show="workout.isCompleted === false"><a ng-href="#!/edit-workout" class="yellow-text">Edit</a></li>
       </ul>
       <ul class="left">
         <li><a ng-href="#!/home"><i class="material-icons yellow-text">arrow_back</i></a></li>
       </ul>
     </div>
   </nav>
-  <div ng-repeat="workout in workoutArr">
-    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+  <div>
+    <h5 class="metal indigo-text text-darken-4">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
   </div>
 </header>
 
@@ -20,35 +21,46 @@
     <div ng-repeat="exercise in workoutExercisesArr">
       <div class="section">
         <h5>{{exercise.name}}</h5>
-      <table class="bordered striped">
+        <div class="divider"></div>
+      <table class="bordered striped responsive-table">
         <thead>
           <tr>
               <th>Set</th>
-              <th>1</th>
-              <th>2</th>
+              <td ng-show="exercise.planReps1">1</td>
+              <td ng-show="exercise.planReps2">2</td>
+              <td ng-show="exercise.planReps3">3</td>
+              <td ng-show="exercise.planReps4">4</td>
+              <td ng-show="exercise.planReps5">5</td>
+              <td ng-show="exercise.planReps6">6</td>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <th>Reps</th>
-            <td>{{exercise.rep1}}</td>
-            <td>{{exercise.rep2}}</td>
+            <th ng-show="exercise.compReps1">Actual</th>
+            <td ng-show="exercise.compReps1">Reps: {{exercise.compReps1}} | Weight : {{exercise.compWt1}}</td>
+            <td ng-show="exercise.compReps2">Reps: {{exercise.compReps2}} | Weight : {{exercise.compWt2}}</td>
+            <td ng-show="exercise.compReps3">Reps: {{exercise.compReps3}} | Weight : {{exercise.compWt3}}</td>
+            <td ng-show="exercise.compReps4">Reps: {{exercise.compReps4}} | Weight : {{exercise.compWt4}}</td>
+            <td ng-show="exercise.compReps5">Reps: {{exercise.compReps5}} | Weight : {{exercise.compWt5}}</td>
+            <td ng-show="exercise.compReps6">Reps: {{exercise.compReps6}} | Weight : {{exercise.compWt6}}</td>
           </tr>
           <tr>
-            <th>Weight</th>
-            <td>{{exercise.wt1}}</td>
-            <td>{{exercise.wt2}}</td>
+            <th>Target</th>
+            <td ng-show="exercise.planReps1">Reps: {{exercise.planReps1}} | Weight : {{exercise.planWt1}}</td>
+            <td ng-show="exercise.planReps2">Reps: {{exercise.planReps2}} | Weight : {{exercise.planWt2}}</td>
+            <td ng-show="exercise.planReps3">Reps: {{exercise.planReps3}} | Weight : {{exercise.planWt3}}</td>
+            <td ng-show="exercise.planReps4">Reps: {{exercise.planReps4}} | Weight : {{exercise.planWt4}}</td>
+            <td ng-show="exercise.planReps5">Reps: {{exercise.planReps5}} | Weight : {{exercise.planWt5}}</td>
+            <td ng-show="exercise.planReps6">Reps: {{exercise.planReps6}} | Weight : {{exercise.planWt6}}</td>
           </tr>
         </tbody>
       </table>
-      </div>
       <div class="divider"></div>
+      </div>
     </div>
-
+      <div ng-hide="exercise.compReps1" class="row">
+        <a ng-click="startWorkout()" class="yellow accent-4 col s12 waves-effect waves-light btn indigo-text">START WORKOUT</a>
+      </div>
   </main>
-
-<div ng-hide="exercise.isCompleted === true" class="row">
-  <a ng-click="startWorkout()" class="yellow accent-4 col s12 waves-effect waves-light btn indigo-text">START WORKOUT</a>
-</div>
 </div>

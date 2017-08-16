@@ -10,17 +10,17 @@
 <h5 class="metal indigo-text">New</h5>
 <div class="container">
   <div class="row">
-    <div class="col s6" ng-repeat="myWorkout in myWorkouts">
+    <div class="col s6 m4" ng-repeat="myWorkout in myWorkouts">
       <a ng-href="#!/view-workout/{{myWorkout.id}}"><div class="card small" ng-show="myWorkout.isCompleted === false">
           <div class="card-image">
             <img src="../images/card-background2.jpg">
-            <span class="card-title z-depth-5 white-text">{{myWorkout.date}}</span>
+            <span class="card-title z-depth-5 yellow-text text-accent-4">{{myWorkout.date}}</span>
           </div>
         <div class="card-content">
-            <h6>{{myWorkout.goal}}</h6>
+            <h6 class="indigo-text text-darken-4">{{myWorkout.goal}}</h6>
         </div>
         <div class="card-action">
-          <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home">Delete</a>
+          <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home" class="yellow-text text-accent-4">Delete</a>
         </div>
       </div></a>
     </div>
@@ -30,17 +30,17 @@
 <h5 class="metal indigo-text">Completed</h5>
 <div class="container">
   <div class="row">
-    <div class="col s6" ng-repeat="myWorkout in myWorkouts">
+    <div class="col s6 m4" ng-repeat="myWorkout in myWorkouts">
       <a ng-href="#!/view-workout/{{myWorkout.id}}"><div class="card small" ng-show="myWorkout.isCompleted === true">
           <div class="card-image">
             <img src="../images/card-background2.jpg">
-            <span class="card-title z-depth-5 white-text">{{myWorkout.date}}</span>
+            <span class="card-title z-depth-5 yellow-text text-accent-4">{{myWorkout.date}}</span>
           </div>
         <div class="card-content">
-            <h6>{{myWorkout.goal}}</h6>
+            <h6 class="indigo-text text-darken-4">{{myWorkout.goal}}</h6>
         </div>
         <div class="card-action">
-          <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home">Delete</a>
+          <a ng-click="deleteWorkout(myWorkout.id, myWorkout.uid)" ng-href="#!/home" class="yellow-text text-accent-4">Delete</a>
         </div>
       </div></a>
     </div>

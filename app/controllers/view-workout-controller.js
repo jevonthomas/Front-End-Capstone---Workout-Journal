@@ -30,29 +30,17 @@ workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, 
   //This function gets all the exercises associated with the viewed workouts
   $scope.workoutExercisesArr = [];
   function fetchWorkoutExercises(workoutURL) {
-    if ($scope.workoutArr[0].isCompleted === false) {
         WorkoutJournalFactory.getSelectExercises(workoutURL)
         .then( (workout) => {
           let workoutData = workout.data;
           Object.keys(workoutData).forEach( (key) => {
             $scope.workoutExercisesArr.push(workoutData[key]);
           });
+          console.log("completed or not", $scope.workoutExercisesArr);
         })
         .catch( (err) => {
             console.log("error", err);
         });
-    } else {
-        WorkoutJournalFactory.getCompletedExercises(workoutURL)
-        .then( (workout) => {
-          let workoutData = workout.data;
-          Object.keys(workoutData).forEach( (key) => {
-            $scope.workoutExercisesArr.push(workoutData[key]);
-          });
-        })
-        .catch( (err) => {
-            console.log("error", err);
-        });
-    }
   }
 
   //Takes user to start workout page

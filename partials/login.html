@@ -1,13 +1,21 @@
-<section class="user-form">
-  <h2>Login or Register</h2>
-  <div>
-    <input type="email" placeholder="Email" ng-model="account.email">
+<div class="container">
+  <div class="row down">
+    <div class="col s4 offset-m3">
+      <img src="../images/logo.png">
+    </div>
   </div>
-  <div>
-    <input type="password" placeholder="Password" ng-model="account.password">
-  </div>
-  <div>
-    <button class="login" ng-click="login()">Log in</button>
-    <button class="logout" ng-click="register()">Register</button>
-  </div>
-</section>
+    <section class="user-form">
+      <div input-field class="login-input">
+        <input type="email" ng-model="account.email">
+        <label class="yellow-text text-accent-4">Email</label>
+      </div>
+      <div input-field class="login-input">
+        <input type="password" ng-model="account.password">
+        <label class="yellow-text text-accent-4">Password</label>
+      </div>
+      <div>
+        <a class="login btn indigo darken-4 yellow-text text-accent-4" ng-click="login()">Log in</a>
+        <a class="logout btn indigo darken-4 yellow-text text-accent-4" ng-click="register()">Register</a>
+      </div>
+    </section>
+</div>
