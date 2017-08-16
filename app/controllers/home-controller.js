@@ -26,8 +26,6 @@ workoutJournalApp.controller("HomeController", function($route, $scope, $window,
           myWorkoutsArr.push(myWorkoutsData[key]);
       });
       $scope.myWorkouts = myWorkoutsArr;
-      //lists the workouts from latest to earliest created
-      myWorkoutsArr.reverse();
     })
     .catch( (err) => {
       console.log("error", err);
