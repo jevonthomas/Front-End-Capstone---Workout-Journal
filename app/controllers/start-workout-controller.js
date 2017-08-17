@@ -65,4 +65,8 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
     $window.location.href = `#!/home`;
   };
 
+  $scope.goBack = () => {
+    $window.history.back();
+  };
+
 });

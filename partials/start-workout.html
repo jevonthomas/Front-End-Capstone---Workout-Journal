@@ -2,124 +2,23 @@
   <nav>
     <div class="nav-wrapper indigo darken-4">
       <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
-      <ul class="right">
-        <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
-      </ul>
       <ul class="left">
         <li><a ng-click="goBack()"><i class="material-icons yellow-text">arrow_back</i></a></li>
       </ul>
     </div>
   </nav>
   <div ng-repeat="workout in workoutArr">
-    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+    <h5 class="metal indigo-text text-darken-4">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
   </div>
 </header>
 
-<div ng-repeat="exercise in workoutExercisesArr">
-<div class="container">
-  <div ng-hide="exercise.isCompleted === true" class="row">
-    <div class="col s12">
-      <div class="card white">
-        <div class="card-content metal indigo-text">
-          <span class="card-title">{{exercise.name}}</span>
-        </div>
-        <div class="card-action indigo darken-4">
-          <a ng-click="startExercise(exercise.exerciseId)" class="white-text">Start Exercise</a>
+  <div class="row" ng-hide="exercise.isCompleted === true">
+    <div class="col s12 m6" ng-repeat="exercise in workoutExercisesArr">
+      <div class="card indigo darken-4">
+        <div class="card-content">
+        	<span class="card-title white-text"><strong>{{exercise.name}}</strong></span>
+          <a class="btn halfway-fab waves-effect waves-light yellow accent-4 indigo-text text-darken-4" ng-click="startExercise(exercise.exerciseId)"><strong>Start Exercise</strong></a>
         </div>
       </div>
     </div>
   </div>
- <!--  <div class="row">
-    <div class="col s12">
-      <div class="card white indigo-text">
-        <h5>{{exercise.name}}</h5>
-        <div class="card-content flex-set">
-        	<div class="sleep col s4">
-	          <h6>Set 1</h6>
-	          <div>
-							<div>
-							  <label>Reps: </label>
-							  <input type="number" ng-model="completedWorkout.reps1" style="width: 3em"><span>/ {{exercise.reps1}}</span>
-							</div>
-							<div>
-							  <label>Wt: </label>
-							  <input type="number" ng-model="completedWorkout.wt1" style="width: 3em"><span>/ {{exercise.wt1}}</span>
-							</div>
-						</div>
-					</div>
-        	<div class="sleep col s4">
-	          <h6>Set 2</h6>
-	          <div>
-							<div>
-							  <label>Reps: </label>
-							  <input type="number" ng-model="completedWorkout.reps2" style="width: 3em"><span>/ {{exercise.reps2}}</span>
-							</div>
-							<div>
-							  <label>Wt: </label>
-							  <input type="number" ng-model="completedWorkout.wt2" style="width: 3em"><span>/ {{exercise.wt2}}</span>
-							</div>
-						</div>
-					</div>
-        	<div class="sleep col s4">
-	          <h6>Set 3</h6>
-	          <div>
-							<div>
-							  <label>Reps: </label>
-							  <input type="number" ng-model="completedWorkout.reps3" style="width: 3em"><span>/ {{exercise.reps3}}</span>
-							</div>
-							<div>
-							  <label>Wt: </label>
-							  <input type="number" ng-model="completedWorkout.wt3" style="width: 3em"><span>/ {{exercise.wt3}}</span>
-							</div>
-						</div>
-					</div>
-					<div class="sleep col s4">
-	          <h6>Set 4</h6>
-	          <div>
-							<div>
-							  <label>Reps: </label>
-							  <input type="number" ng-model="completedWorkout.reps4" style="width: 3em"><span>/ {{exercise.reps4}}</span>
-							</div>
-							<div>
-							  <label>Wt: </label>
-							  <input type="number" ng-model="completedWorkout.wt4" style="width: 3em"><span>/ {{exercise.wt4}}</span>
-							</div>
-						</div>
-					</div>
-					<div class="sleep col s4">
-	          <h6>Set 5</h6>
-	          <div>
-							<div>
-							  <label>Reps: </label>
-							  <input type="number" ng-model="completedWorkout.reps5" style="width: 3em"><span>/ {{exercise.reps5}}</span>
-							</div>
-							<div>
-							  <label>Wt: </label>
-							  <input type="number" ng-model="completedWorkout.wt5" style="width: 3em"><span>/ {{exercise.wt5}}</span>
-							</div>
-						</div>
-					</div>
-					<div class="sleep col s4">
-	          <h6>Set 6</h6>
-	          <div>
-							<div>
-							  <label>Reps: </label>
-							  <input type="number" ng-model="completedWorkout.reps6" style="width: 3em"><span>/ {{exercise.reps6}}</span>
-							</div>
-							<div>
-							  <label>Wt: </label>
-							  <input type="number" ng-model="completedWorkout.wt6" style="width: 3em"><span>/ {{exercise.wt6}}</span>
-							</div>
-						</div>
-					</div>
-
-        </div>
-
-				<button ng-click="saveCompletedExercise(exercise.name)">Done</button>
-
-      </div>
-    </div>
-  </div> -->
-</div>
-</div>
-  <button ng-click="updateWorkout()">Save Results</button>
