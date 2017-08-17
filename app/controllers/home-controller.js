@@ -38,4 +38,8 @@ workoutJournalApp.controller("HomeController", function($route, $scope, $window,
     WorkoutJournalFactory.deleteWorkoutExercises(workoutURL);
   };
 
+  $scope.logout = () => {
+    UserFactory.logoutUser();
+  };
+
 });
