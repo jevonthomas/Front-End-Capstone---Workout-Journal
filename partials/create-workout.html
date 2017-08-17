@@ -22,32 +22,7 @@
   </div>
 
   <label for="inputCreated">Select Workout Date</label>
-  <input ng-model="createWorkout.date" placeholder="mm/dd/yyyy" input-date
-      type="text"
-      name="created"
-      id="inputCreated"
-      ng-model="currentTime"
-      container=""
-      format="mm/dd/yyyy"
-      months-full="{{ month }}"
-      months-short="{{ monthShort }}"
-      weekdays-full="{{ weekdaysFull }}"
-      weekdays-short="{{ weekdaysShort }}"
-      weekdays-letter="{{ weekdaysLetter }}"
-      disable="disable"
-      min="{{ minDate }}"
-      max="{{ maxDate }}"
-      today="today"
-      first-day="1"
-      clear="clear"
-      close="close"
-      select-years="15"
-      on-start="onStart()"
-      on-render="onRender()"
-      on-open="onOpen()"
-      on-close="onClose()"
-      on-set="onSet()"
-      on-stop="onStop()" />
+  <input ng-model="createWorkout.date" placeholder="yyyy/mm/dd" type="Date">
 
   <label>Goals</label>
   <div input-field>
