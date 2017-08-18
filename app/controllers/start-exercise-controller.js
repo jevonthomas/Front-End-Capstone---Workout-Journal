@@ -35,9 +35,7 @@ workoutJournalApp.controller("StartExerciseController", function($scope, $window
       WorkoutJournalFactory.getCurrentExercise(exerciseURL)
       .then( (exercise) => {
         let exerciseData = exercise.data;
-        console.log("just the data", exerciseData);
         $scope.exerciseArr.push(exerciseData);
-        console.log("controller", $scope.exerciseArr);
       })
       .catch( (err) => {
           console.log("error", err);

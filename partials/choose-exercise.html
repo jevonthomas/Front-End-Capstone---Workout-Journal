@@ -1,7 +1,7 @@
 <header>
   <nav>
     <div class="nav-wrapper indigo darken-4">
-      <a ng-href="#!/home" class="brand-logo"><img src="../images/logoname.png"></a>
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
     </div>
   </nav>
   <div ng-repeat="workout in workoutArr">
@@ -30,7 +30,7 @@
     <div class="row">
       <div class="col s6 m4" ng-repeat="exercise in exercises">
         <div class="card" ng-click="nextPage(exercise.name)">
-          <div class="card-content metal white-text">
+          <div class="card-content indigo darken-4 white-text">
             <span class="card-title">{{exercise.name}}</span>
           </div>
         </div>

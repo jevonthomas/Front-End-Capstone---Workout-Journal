@@ -1,9 +1,12 @@
 <header>
   <nav>
     <div class="nav-wrapper indigo darken-4">
-      <a ng-href="#!/home" class="brand-logo"><img src="../images/logoname.png"></a>
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
       <ul class="left">
-        <li><a ng-click="goBack()"><i class="material-icons yellow-text">arrow_back</i></a></li>
+        <li><a ng-href="#!/home"><i class="material-icons yellow-text text-accent-4">cancel</i></a></li>
+      </ul>
+      <ul class="right">
+        <li><a ng-click="saveUserExercises()"><i class="material-icons yellow-text text-accent-4">save</i></a></li>
       </ul>
     </div>
   </nav>
@@ -18,8 +21,13 @@
       <div class="row">
         <div class="col s12">
           <a ng-click="goToSets(exercise.id)"><div class="card white">
-            <div class="card-content indigo-text">
-              <h6>{{exercise.name}}</h6>
+            <div class="card-content indigo darken-4">
+              <h5 class="white-text">{{exercise.name}}</h5>
+              <div class="row">
+                <div class="col s4 offset-s11">
+                  <a ng-click="deleteExercise(exercise.id)" class="btn-floating btn waves-effect waves-light yellow accent-4"><i class="material-icons"><span class="indigo-text text-darken-4">delete</span></i></a>
+                </div>
+              </div>
             </div>
           </div></a>
         </div>
@@ -27,17 +35,10 @@
     </div>
   </main>
 
-  <nav class="row">
-    <div class="nav-wrapper yellow accent-4 col s12">
-      <ul class="left">
-        <li><a ng-click="cancelCreateWorkout()"><span class="indigo-text">Cancel</span></a></li>
-      </ul>
-      <ul class="brand-logo">
-        <li><a ng-click="saveUserExercises()"><span class="indigo-text">Save</span></a></li>
-      </ul>
-      <ul class="right">
-        <li><a ng-click="addExercises()"><span class="indigo-text">Add Exercise</span></a></li>
-      </ul>
+  <div class="row">
+    <div class="col s4 offset-s5">
+      <a ng-click="addExercises()" class="btn-floating btn-large waves-effect waves-light yellow accent-4 pulse"><i class="material-icons"><span class="indigo-text text-darken-4">add</span></i></a>
     </div>
-  </nav>
+  </div>
+
 </div>

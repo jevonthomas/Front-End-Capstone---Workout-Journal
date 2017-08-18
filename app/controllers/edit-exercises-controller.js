@@ -1,6 +1,6 @@
 "use strict";
 
-workoutJournalApp.controller("EditExercisesController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("EditExercisesController", function($route, $scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
   //Exercise profile to be posted to firebase after user input
   $scope.userExercises = {
@@ -72,6 +72,17 @@ workoutJournalApp.controller("EditExercisesController", function($scope, $window
 
   $scope.goToSets = (url) => {
     $window.location.href = `#!/edit-workout/${$routeParams.editExerciseParam}/edit-exercises/${$routeParams.editExerciseParam}/sets/${url}`;
+  };
+
+  $scope.deleteExercise = (exerciseURL) => {
+    console.log("delte", exerciseURL);
+      WorkoutJournalFactory.deleteExercise(exerciseURL)
+      .then( (exercise) => {
+        $route.reload();
+      })
+      .catch( (err) => {
+          console.log("error", err);
+      });
   };
 
 });

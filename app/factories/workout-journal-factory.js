@@ -255,6 +255,20 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
-return { patchPlannedWorkout, getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
+  //Performs a delete on a single exercise
+  //called by edit exercises controller
+  let deleteExercise = (url) => {
+    return $q( (resolve, reject) => {
+        $http.delete(`${FirebaseUrl}/planned-workouts/${url}.json`)
+        .then( (data) => {
+          resolve(data);
+        })
+        .catch( (err) => {
+          reject(err);
+        });
+    });
+  };
+
+return { deleteExercise, patchPlannedWorkout, getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
 
 });

@@ -1,7 +1,7 @@
 <header ng-repeat="workout in workoutArr">
   <nav>
     <div class="nav-wrapper indigo darken-4">
-      <a ng-href="#!/home" class="brand-logo"><img src="../images/logoname.png"></a>
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
       <ul class="right">
         <li ng-show="workout.isCompleted === true"><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
         <li ng-show="workout.isCompleted === false"><a ng-click="editWorkout()" class="yellow-text"><i class="material-icons yellow-text">edit</i></a></li>
@@ -59,7 +59,7 @@
       <div class="divider"></div>
       </div>
     </div>
-      <div ng-hide="exercise.compReps1" class="row fixed-action-btn">
+      <div ng-repeat="workout in workoutArr" ng-show="workout.isCompleted === false" class="row fixed-action-btn">
         <a ng-click="startWorkout()" class="yellow accent-4 col s12 waves-effect waves-light btn indigo-text"><strong>START WORKOUT</strong></a>
       </div>
   </main>
