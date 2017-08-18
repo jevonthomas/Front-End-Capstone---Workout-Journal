@@ -1,17 +1,17 @@
 <header>
   <nav>
     <div class="nav-wrapper indigo darken-4">
-      <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+      <a ng-href="#!/home" class="brand-logo"><img src="../images/logoname.png"></a>
       <ul class="right">
-        <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
+        <li><a ng-click="saveMyWorkout()"><i class="material-icons yellow-text">save</i></a></li>
       </ul>
       <ul class="left">
         <li><a ng-click="goBack()"><i class="material-icons yellow-text">arrow_back</i></a></li>
       </ul>
     </div>
   </nav>
-  <div ng-repeat="workout in workoutArr">
-    <h5 class="metal indigo-text">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+  <div>
+    <h5 class="metal indigo-text">Workout Sets</h5>
   </div>
 </header>
 
@@ -103,5 +103,5 @@
     </div>
 
 	</div>
-<button ng-click="saveMyWorkout()">Save</button>
+
 </div>
