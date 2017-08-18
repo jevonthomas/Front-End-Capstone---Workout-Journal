@@ -10,25 +10,23 @@
       </ul>
     </div>
   </nav>
-<h5 class="metal indigo-text">Create Workout</h5>
+<h5 class="metal indigo-text">Edit Workout</h5>
 </header>
 
 <div class="container">
-
-<main>
-
-  <label for="inputCreated">Name Your Workout</label>
-  <input ng-model="createWorkout.name" type="text">
+<main ng-repeat="workout in workoutArr">
+  <label for="inputCreated">Edit Your Workout Name</label>
+  <input ng-model="editWorkout.name" type="text">
 
   <label>Input Workout Day</label>
   <div class="input-field col s12">
-    <input ng-model="createWorkout.day" placeholder="1" id="day" type="number" class="validate">
+    <input ng-model="editWorkout.day" id="day" type="number" class="validate">
   </div>
 
 
   <label>Goals</label>
   <div input-field>
-    <select class="" ng-model="createWorkout.goal" material-select watch>
+    <select class="" ng-model="editWorkout.goal" material-select watch>
       <option value="" disabled selected>Choose Your Goal</option>
       <option value="Endurance">Muscle Endurance</option>
       <option value="Growth">Muscle Growth</option>
@@ -40,7 +38,3 @@
 
 </main>
 </div>
-
-<footer>
-
-</footer>

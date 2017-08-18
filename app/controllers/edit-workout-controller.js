@@ -1,6 +1,15 @@
 "use strict";
 
-workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("EditWorkoutController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+
+  //Workout profile object to be patched to firebase after user inputs the values
+  $scope.editWorkout = {
+    day: "",
+    name: "",
+    goal: "",
+    isCompleted: false,
+    uid: UserFactory.getUser()
+  };
 
   let currentUser = null;
   let testURL = null;
@@ -8,7 +17,7 @@ workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, 
   UserFactory.isAuthenticated(currentUser)
   .then( (user) => {
     currentUser = UserFactory.getUser();
-    fetchSingleWorkout($routeParams.viewWorkoutFBID);
+    fetchSingleWorkout($routeParams.editWorkoutParam);
     testURL = $routeParams.viewWorkoutFBID;
   });
 
@@ -34,22 +43,22 @@ workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, 
         .then( (workout) => {
           let workoutData = workout.data;
           Object.keys(workoutData).forEach( (key) => {
-            $scope.workoutExercisesArr.push(workoutData[key]);
+          $scope.workoutExercisesArr.push(workoutData[key]);
           });
-          console.log($scope.workoutArr);
         })
         .catch( (err) => {
             console.log("error", err);
         });
   }
 
-  //Takes user to start workout page
-  $scope.startWorkout = () => {
-    $window.location.href = `#!/start-workout/${testURL}`;
-  };
-
-  $scope.editWorkout = () => {
-    $window.location.href = `#!/edit-workout/${testURL}`;
+    //Calls a post function in the wj factory with the workout profile
+  //object as an argument
+  //Takes the user to the select exercises page
+  $scope.saveWorkout = () => {
+    WorkoutJournalFactory.patchUserWorkout($scope.editWorkout, $routeParams.editWorkoutParam)
+    .then( (data) => {
+      $window.location.href = `#!/edit-workout/${$routeParams.editWorkoutParam}/edit-exercises/${$routeParams.editWorkoutParam}`;
+    });
   };
 
 });

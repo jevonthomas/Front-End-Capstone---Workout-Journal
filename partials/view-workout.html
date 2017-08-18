@@ -4,7 +4,7 @@
       <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
       <ul class="right">
         <li ng-show="workout.isCompleted === true"><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
-        <li ng-show="workout.isCompleted === false"><a ng-href="#!/edit-workout" class="yellow-text"><i class="material-icons yellow-text">edit</i></a></li>
+        <li ng-show="workout.isCompleted === false"><a ng-click="editWorkout()" class="yellow-text"><i class="material-icons yellow-text">edit</i></a></li>
       </ul>
       <ul class="left">
         <li><a ng-href="#!/home"><i class="material-icons yellow-text">arrow_back</i></a></li>
@@ -12,7 +12,7 @@
     </div>
   </nav>
   <div>
-    <h5 class="metal indigo-text text-darken-4">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+    <h5 class="metal indigo-text text-darken-4">{{workout.name}}<br>Day {{workout.day}}<br>{{workout.goal}}</h5>
   </div>
 </header>
 

@@ -190,6 +190,21 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+    //Called by edit sets controller
+    //Updates the sets for the selected exercise
+  let patchPlannedWorkout = (editedWorkout, url) => {
+      return $q( (resolve, reject) => {
+      $http.patch(`${FirebaseUrl}/planned-workouts/${url}.json`,
+        angular.toJson(editedWorkout))
+      .then( (newWorkoutData) => {
+        resolve(newWorkoutData);
+      })
+      .catch( (error) => {
+        reject(error);
+      });
+    });
+  };
+
   //Called by start workout controller
   //Used to update the workout profile with a completed status
   let patchFinishedWorkout = (updatedWorkout, url) => {
@@ -240,6 +255,6 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
-return { getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
+return { patchPlannedWorkout, getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
 
 });
