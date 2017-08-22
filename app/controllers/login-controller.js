@@ -11,7 +11,6 @@ workoutJournalApp.controller("LoginController", function($scope, $window, UserFa
     console.log("you clicked register");
     UserFactory.createUser($scope.account)
     .then( (userData) => {
-      console.log("New User!", userData);
       $scope.login();
     });
   };
@@ -19,7 +18,6 @@ workoutJournalApp.controller("LoginController", function($scope, $window, UserFa
   $scope.login = () => {
     UserFactory.loginUser($scope.account)
     .then( (userData) => {
-      console.log("userData", userData);
       $window.location.href = '#!/home';
     });
   };

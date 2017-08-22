@@ -1,6 +1,6 @@
 "use strict";
 
-workoutJournalApp.controller("StartWorkoutController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("StartWorkoutController", function($scope, $route, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
 
 
@@ -60,8 +60,11 @@ workoutJournalApp.controller("StartWorkoutController", function($scope, $window,
 
   //Updates the workout profile to complete and returns the user to home page
   $scope.updateWorkout = () => {
-    WorkoutJournalFactory.patchFinishedWorkout($scope.createWorkout, testURL);
+    WorkoutJournalFactory.patchFinishedWorkout($scope.createWorkout, testURL)
+    .then( (data) => {
+    $route.reload();
     $window.location.href = `#!/home`;
+    });
   };
 
   $scope.goBack = () => {

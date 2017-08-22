@@ -36,7 +36,6 @@ workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, 
           Object.keys(workoutData).forEach( (key) => {
             $scope.workoutExercisesArr.push(workoutData[key]);
           });
-          console.log($scope.workoutArr);
         })
         .catch( (err) => {
             console.log("error", err);

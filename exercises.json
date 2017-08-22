@@ -1,7 +1,7 @@
 {
   "exercises": [
     {
-      "name": "Flat Barbell Bench Press",
+      "name": "Barbell Bench Press",
       "muscle-group": "Chest"
     },
     {
@@ -13,7 +13,111 @@
       "muscle-group": "Chest"
     },
     {
+      "name": "Wide-Grip Barbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Barbell Pullover and Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Machine Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Dumbbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Pushups",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Straight-Arm Dumbbell Pullover",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Dumbbell Flyes",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Butterfly",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Cable Crossover",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Incline Dumbbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Hammer Grip Incline DB Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Bent-Arm Barbell Pullover",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Incline Dumbbell Flyes",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Bent-Arm Dumbbell Pullover",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Wide-Grip Decline Barbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Decline Dumbbell Bench Press",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Dips",
+      "muscle-group": "Chest"
+    },
+    {
+      "name": "Decline Dumbbell Flyes",
+      "muscle-group": "Chest"
+    },
+    {
       "name": "Lateral Pulldown",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Standing Dumbbell Upright Row",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Upright Cable Row",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Barbell Shrug",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Dumbbell Shrug",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Bent Over Barbell Row",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Seated Cable Rows",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Pullups",
+      "muscle-group": "Back"
+    },
+    {
+      "name": "Back Extensions",
       "muscle-group": "Back"
     },
     {
@@ -35,6 +139,194 @@
     {
       "name": "Preacher Curl",
       "muscle-group": "Biceps"
+    },
+    {
+      "name": "Barbell Squat",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Barbell Lunge",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Sumo-Style Deadlift",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Dumbbell Squat",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Dumbbell Rear Lunge",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Leg Press",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Leg Extensions",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Romanian Deadlift",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Lying Leg Curls",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Standing Dumbbell Calf Raise",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Standing Calf Raises",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Seated Calf Raise",
+      "muscle-group": "Legs"
+    },
+    {
+      "name": "Sit-Up",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Crunches",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Decline Sit-Up",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Cable Crunch",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Ab Crunch Machine",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Decline Knee Raise",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Seated Flat Bench Leg Pull-In",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Reverse Crunch",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Hanging Leg Raise",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Flat Bench Lying Leg Raise",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Decline Oblique Crunch",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Oblique Crunches",
+      "muscle-group": "Abs"
+    },
+    {
+      "name": "Barbell Shoulder Press",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Standing Military Press",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Upright Barbell Row",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Dumbbell Shoulder Press",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Arnold Dumbbell Press",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Machine Shoulder Press",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Standing Front Barbell Raise",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Front Dumbbell Raise",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Side Lateral Raise",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "One-Arm Side Laterals",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Front Cable Raise",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Lying Rear Delt Raise",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Reverse Flyes",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Standing Dumbbell Upright Row",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Upright Cable Row",
+      "muscle-group": "Shoulders"
+    },
+    {
+      "name": "Reverse Barbell Curl",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Preacher Curl",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Alternate Hammer Curl",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Alternate Dumbbell Bicep Curl",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Overhead Barbell Triceps Extensions",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Lying Triceps Extensions",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Standing Dumbbell Triceps Extensions",
+      "muscle-group": "Arms"
+    },
+    {
+      "name": "Cable Triceps Extensions",
+      "muscle-group": "Arms"
     }
   ]
 }

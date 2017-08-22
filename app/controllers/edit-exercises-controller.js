@@ -48,7 +48,6 @@ workoutJournalApp.controller("EditExercisesController", function($route, $scope,
           workoutData[key].id = key;
           $scope.workoutExercisesArr.push(workoutData[key]);
         });
-        console.log("editttt", $scope.workoutExercisesArr);
       })
       .catch( (err) => {
           console.log("error", err);

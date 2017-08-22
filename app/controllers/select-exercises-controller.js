@@ -49,6 +49,7 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
         workoutExercisesArray.push(workoutData[key]);
       });
       $scope.workoutExercisesArr = workoutExercisesArray;
+      $scope.myNumber = $scope.workoutExercisesArr.length;
     })
     .catch( (err) => {
         console.log("error", err);
