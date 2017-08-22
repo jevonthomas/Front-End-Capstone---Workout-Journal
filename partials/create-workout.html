@@ -1,53 +1,30 @@
 <header>
   <nav>
     <div class="nav-wrapper indigo darken-4">
-      <a ng-href="#!/home" class="brand-logo">WORKOUT JOURNAL</a>
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
       <ul class="left">
-        <li><a class="yellow-text" ng-click="cancelWorkoutCreation()">Cancel</a></li>
+        <li><a class="yellow-text text-accent-4" ng-click="cancelWorkoutCreation()">Cancel</a></li>
       </ul>
       <ul class="right">
-        <li><a class="yellow-text" ng-click="saveWorkout()">Next</a></li>
+        <li><a class="yellow-text text-accent-4" ng-click="saveWorkout()">Next</a></li>
       </ul>
     </div>
   </nav>
-<h5 class="metal indigo-text">Create Workout</h5>
+<h5 class="metal indigo-text text-darken-4">Create Workout</h5>
 </header>
 
 <div class="container">
 
 <main>
+
+  <label for="inputCreated">Name Your Workout</label>
+  <input ng-model="createWorkout.name" type="text">
+
   <label>Input Workout Day</label>
   <div class="input-field col s12">
     <input ng-model="createWorkout.day" placeholder="1" id="day" type="number" class="validate">
   </div>
 
-  <label for="inputCreated">Select Workout Date</label>
-  <input ng-model="createWorkout.date" placeholder="mm/dd/yyyy" input-date
-      type="text"
-      name="created"
-      id="inputCreated"
-      ng-model="currentTime"
-      container=""
-      format="mm/dd/yyyy"
-      months-full="{{ month }}"
-      months-short="{{ monthShort }}"
-      weekdays-full="{{ weekdaysFull }}"
-      weekdays-short="{{ weekdaysShort }}"
-      weekdays-letter="{{ weekdaysLetter }}"
-      disable="disable"
-      min="{{ minDate }}"
-      max="{{ maxDate }}"
-      today="today"
-      first-day="1"
-      clear="clear"
-      close="close"
-      select-years="15"
-      on-start="onStart()"
-      on-render="onRender()"
-      on-open="onOpen()"
-      on-close="onClose()"
-      on-set="onSet()"
-      on-stop="onStop()" />
 
   <label>Goals</label>
   <div input-field>
@@ -63,7 +40,3 @@
 
 </main>
 </div>
-
-<footer>
-
-</footer>

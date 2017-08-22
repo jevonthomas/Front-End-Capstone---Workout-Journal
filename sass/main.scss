@@ -18,6 +18,7 @@ main {
   background-position: top right;
   margin: 0;
   padding: 15px;
+  border: 1px solid #ffd600;
 }
 
 .loginScreen {
@@ -37,4 +38,13 @@ main {
 
 .down {
   margin-top: 50px;
+}
+
+.table-space {
+  padding-right: 30px;
+  padding-left: 0px;
+}
+
+.sleep {
+  border: 1px solid lightgrey;
 }

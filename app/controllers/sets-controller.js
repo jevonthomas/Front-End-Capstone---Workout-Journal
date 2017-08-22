@@ -23,9 +23,18 @@ workoutJournalApp.controller("SetsController", function($route, $scope, $window,
   };
 
 
-  $scope.saveMyWorkout = () => {
-    WorkoutJournalFactory.postPlannedWorkout($scope.exercise);
-    $window.location.href = `#!/create-workout/select-exercises/${$routeParams.workoutFBID}`;
+  $scope.goBack = () => {
+    $window.location.href = `#!/create-workout/choose-exercise/${$routeParams.workoutFBID}`;
   };
 
+  $scope.saveMyWorkout = () => {
+    WorkoutJournalFactory.postPlannedWorkout($scope.exercise)
+    .then( (workout) => {
+      $route.reload();
+      $window.location.href = `#!/create-workout/select-exercises/${$routeParams.workoutFBID}`;
+    })
+      .catch( (err) => {
+          console.log("error", err);
+      });
+  };
 });

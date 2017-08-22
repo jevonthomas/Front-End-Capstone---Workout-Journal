@@ -1,0 +1,40 @@
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
+      <ul class="left">
+        <li><a class="yellow-text text-accent-4" ng-click="cancelWorkoutCreation()">Cancel</a></li>
+      </ul>
+      <ul class="right">
+        <li><a class="yellow-text text-accent-4" ng-click="saveWorkout()">Next</a></li>
+      </ul>
+    </div>
+  </nav>
+<h5 class="metal indigo-text text-darken-4">Edit Workout</h5>
+</header>
+
+<div class="container">
+<main ng-repeat="workout in workoutArr">
+  <label for="inputCreated">Edit Your Workout Name</label>
+  <input ng-model="editWorkout.name" type="text">
+
+  <label>Input Workout Day</label>
+  <div class="input-field col s12">
+    <input ng-model="editWorkout.day" id="day" type="number" class="validate">
+  </div>
+
+
+  <label>Goals</label>
+  <div input-field>
+    <select class="" ng-model="editWorkout.goal" material-select watch>
+      <option value="" disabled selected>Choose Your Goal</option>
+      <option value="Endurance">Muscle Endurance</option>
+      <option value="Growth">Muscle Growth</option>
+      <option value="Strength">Max Strength</option>
+      <option value="Power">Power</option>
+    </select>
+  </div>
+
+
+</main>
+</div>

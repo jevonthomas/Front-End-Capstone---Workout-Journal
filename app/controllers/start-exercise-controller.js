@@ -1,6 +1,6 @@
 "use strict";
 
-workoutJournalApp.controller("StartExerciseController", function($scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("StartExerciseController", function($scope, $route, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
   $scope.completedExercise = {
     name: "",
@@ -35,9 +35,7 @@ workoutJournalApp.controller("StartExerciseController", function($scope, $window
       WorkoutJournalFactory.getCurrentExercise(exerciseURL)
       .then( (exercise) => {
         let exerciseData = exercise.data;
-        console.log("just the data", exerciseData);
         $scope.exerciseArr.push(exerciseData);
-        console.log("controller", $scope.exerciseArr);
       })
       .catch( (err) => {
           console.log("error", err);
@@ -47,7 +45,14 @@ workoutJournalApp.controller("StartExerciseController", function($scope, $window
   //Updates the exercise profile with the user's recorded performance
   $scope.saveCompletedExercise = (exerciseName) => {
     $scope.completedExercise.name = exerciseName;
-    WorkoutJournalFactory.postFinishedExercise($scope.completedExercise, $routeParams.exerciseID);
+    WorkoutJournalFactory.postFinishedExercise($scope.completedExercise, $routeParams.exerciseID)
+    .then( (data) => {
+    $route.reload();
+    $window.history.back();
+    });
+  };
+
+  $scope.goBack = () => {
     $window.history.back();
   };
 

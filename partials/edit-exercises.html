@@ -1,0 +1,44 @@
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
+      <ul class="left">
+        <li><a ng-href="#!/home"><i class="material-icons yellow-text text-accent-4">cancel</i></a></li>
+      </ul>
+      <ul class="right">
+        <li><a ng-click="saveUserExercises()"><i class="material-icons yellow-text text-accent-4">save</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div ng-repeat="workout in workoutArr">
+    <h5 class="metal indigo-text text-darken-4">{{workout.name}}<br>Day {{workout.day}}<br>{{workout.goal}}</h5>
+  </div>
+</header>
+
+<div class="container">
+  <main>
+    <div ng-repeat="exercise in workoutExercisesArr">
+      <div class="row">
+        <div class="col s12">
+          <a ng-click="goToSets(exercise.id)"><div class="card white">
+            <div class="card-content indigo darken-4">
+              <h5 class="white-text">{{exercise.name}}</h5>
+              <div class="row">
+                <div class="col s4 offset-s11">
+                  <a ng-click="deleteExercise(exercise.id)" class="btn-floating btn waves-effect waves-light yellow accent-4"><i class="material-icons"><span class="indigo-text text-darken-4">delete</span></i></a>
+                </div>
+              </div>
+            </div>
+          </div></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="row">
+    <div class="col s4 offset-s5">
+      <a ng-click="addExercises()" class="btn-floating btn-large waves-effect waves-light yellow accent-4 pulse"><i class="material-icons"><span class="indigo-text text-darken-4">add</span></i></a>
+    </div>
+  </div>
+
+</div>

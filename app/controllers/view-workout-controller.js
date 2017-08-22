@@ -36,7 +36,6 @@ workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, 
           Object.keys(workoutData).forEach( (key) => {
             $scope.workoutExercisesArr.push(workoutData[key]);
           });
-          console.log("completed or not", $scope.workoutExercisesArr);
         })
         .catch( (err) => {
             console.log("error", err);
@@ -46,6 +45,10 @@ workoutJournalApp.controller("ViewWorkoutController", function($scope, $window, 
   //Takes user to start workout page
   $scope.startWorkout = () => {
     $window.location.href = `#!/start-workout/${testURL}`;
+  };
+
+  $scope.editWorkout = () => {
+    $window.location.href = `#!/edit-workout/${testURL}`;
   };
 
 });

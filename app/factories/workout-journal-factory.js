@@ -190,10 +190,24 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
+    //Called by edit sets controller
+    //Updates the sets for the selected exercise
+  let patchPlannedWorkout = (editedWorkout, url) => {
+      return $q( (resolve, reject) => {
+      $http.patch(`${FirebaseUrl}/planned-workouts/${url}.json`,
+        angular.toJson(editedWorkout))
+      .then( (newWorkoutData) => {
+        resolve(newWorkoutData);
+      })
+      .catch( (error) => {
+        reject(error);
+      });
+    });
+  };
+
   //Called by start workout controller
   //Used to update the workout profile with a completed status
   let patchFinishedWorkout = (updatedWorkout, url) => {
-    console.log(url);
     return $q( (resolve, reject) => {
       $http.patch(`${FirebaseUrl}/user-workouts/${url}.json`,
         angular.toJson(updatedWorkout))
@@ -214,7 +228,6 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
       $http.get(`${FirebaseUrl}/planned-workouts/${url}.json`)
       .then( (exerciseData) => {
         resolve(exerciseData);
-        console.log("factory get", exerciseData);
       })
       .catch( (err) => {
         console.log("oops error");
@@ -240,6 +253,35 @@ workoutJournalApp.factory('WorkoutJournalFactory', function($q, $http, FirebaseU
     });
   };
 
-return { getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
+  //Performs a delete on a single exercise
+  //called by edit exercises controller
+  let deleteExercise = (url) => {
+    return $q( (resolve, reject) => {
+        $http.delete(`${FirebaseUrl}/planned-workouts/${url}.json`)
+        .then( (data) => {
+          resolve(data);
+        })
+        .catch( (err) => {
+          reject(err);
+        });
+    });
+  };
+
+  // let getDataBaseExercises = (muscleGroup) => {
+  //   return $q( (resolve, reject) => {
+  //     // https://wger.de/api/v2/exercise/?muscles=${muscleGroup}&api_key=e1631af53ee609b4ff5fc14b66496605695a0833.json
+  //     $http.get(`http://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=c8d52d1b4aba118972c33b3a3aba1eae&page=1`)
+  //     .then( (exObj) => {
+  //       console.log("database exercises", exObj);
+  //       resolve(exObj);
+  //     })
+  //     .catch( (err) => {
+  //       console.log("error");
+  //       reject();
+  //     });
+  //   });
+  // };
+
+return { deleteExercise, patchPlannedWorkout, getCompletedExercises, getCurrentExercise, patchFinishedWorkout, postFinishedExercise, postPlannedWorkout, getSelectExercises, getExercises, postNewWorkout, getWorkouts, getSingleWorkout, postUserExercises, getWorkoutExercises, patchUserWorkout, patchUserExercises, deleteWorkout, deleteWorkoutExercises };
 
 });

@@ -70,7 +70,6 @@ workoutJournalApp.controller("RecordWorkoutController", function($scope, $window
           Object.keys(exerciseData).forEach( (key) => {
               $scope.exercises.push(exerciseData[key]);
           });
-          console.log("exercises", $scope.exercises);
       })
       .catch( (err) => {
           console.log("error", err);

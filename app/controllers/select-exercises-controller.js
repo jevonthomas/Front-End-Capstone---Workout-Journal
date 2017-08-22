@@ -25,32 +25,35 @@ workoutJournalApp.controller("SelectExercisesController", function($scope, $wind
   //calls a get function in wj factory to get the workout profile object
   //that was just created, sending the user to this page
   //Sole purpose is to have the workout profile displayed while the user selects their exercises
-  $scope.workoutArr = [];
   function fetchSingleWorkout(workoutURL) {
-      WorkoutJournalFactory.getSingleWorkout(workoutURL)
-      .then( (workout) => {
-        $scope.workoutArr.push(workout.data);
-      })
-      .catch( (err) => {
-          console.log("error", err);
-      });
+    let workoutArray = [];
+    WorkoutJournalFactory.getSingleWorkout(workoutURL)
+    .then( (workout) => {
+      workoutArray.push(workout.data);
+      $scope.workoutArr = workoutArray;
+    })
+    .catch( (err) => {
+        console.log("error", err);
+    });
   }
 
 
   //When the page loads, this function is called to get all user exercises
   //associated with the selected workout profile
-  $scope.workoutExercisesArr = [];
   function fetchWorkoutExercises(workoutURL) {
-      WorkoutJournalFactory.getSelectExercises(workoutURL)
-      .then( (workout) => {
-        let workoutData = workout.data;
-        Object.keys(workoutData).forEach( (key) => {
-          $scope.workoutExercisesArr.push(workoutData[key]);
-        });
-      })
-      .catch( (err) => {
-          console.log("error", err);
+    let workoutExercisesArray = [];
+    WorkoutJournalFactory.getSelectExercises(workoutURL)
+    .then( (workout) => {
+      let workoutData = workout.data;
+      Object.keys(workoutData).forEach( (key) => {
+        workoutExercisesArray.push(workoutData[key]);
       });
+      $scope.workoutExercisesArr = workoutExercisesArray;
+      $scope.myNumber = $scope.workoutExercisesArr.length;
+    })
+    .catch( (err) => {
+        console.log("error", err);
+    });
   }
 
   //Takes user back to the view workout page

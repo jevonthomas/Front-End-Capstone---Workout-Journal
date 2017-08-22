@@ -67,5 +67,20 @@ workoutJournalApp.config( ($routeProvider) => {
     controller: 'StartExerciseController',
     resolve: {isAuth}
   })
+  .when('/edit-workout/:editWorkoutParam', {
+    templateUrl: 'partials/edit-workout.html',
+    controller: 'EditWorkoutController',
+    resolve: {isAuth}
+  })
+  .when('/edit-workout/:editWorkoutParam/edit-exercises/:editExerciseParam', {
+    templateUrl: 'partials/edit-exercises.html',
+    controller: 'EditExercisesController',
+    resolve: {isAuth}
+  })
+  .when('/edit-workout/:editWorkoutParam/edit-exercises/:editExerciseParam/sets/:editSetsParam', {
+    templateUrl: 'partials/edit-sets.html',
+    controller: 'EditSetsController',
+    resolve: {isAuth}
+  })
   .otherwise('/');
 });

@@ -1,6 +1,6 @@
 "use strict";
 
-workoutJournalApp.controller("HomeController", function($route, $scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
+workoutJournalApp.controller("HomeController", function($timeout, $route, $scope, $window, $routeParams, UserFactory, WorkoutJournalFactory) {
 
 	let currentUser = null;
 
@@ -13,8 +13,8 @@ workoutJournalApp.controller("HomeController", function($route, $scope, $window,
 
   //When home page loads, this function is called
   //This function calls a get function in wj factory
-  let myWorkoutsArr = [];
   function fetchMyWorkouts() {
+  let myWorkoutsArr = [];
     WorkoutJournalFactory.getWorkouts()
     .then( (myWorkoutsList) => {
       let myWorkoutsData = myWorkoutsList.data;
@@ -25,7 +25,9 @@ workoutJournalApp.controller("HomeController", function($route, $scope, $window,
           myWorkoutsData[key].id = key;
           myWorkoutsArr.push(myWorkoutsData[key]);
       });
-      $scope.myWorkouts = myWorkoutsArr;
+      $timeout( function() {
+        $scope.myWorkouts = myWorkoutsArr;
+      }, 500);
     })
     .catch( (err) => {
       console.log("error", err);
@@ -34,8 +36,15 @@ workoutJournalApp.controller("HomeController", function($route, $scope, $window,
 
   //Deletes the workout profile and all associated user exercises
   $scope.deleteWorkout = (workoutURL) => {
-    WorkoutJournalFactory.deleteWorkout(workoutURL);
-    WorkoutJournalFactory.deleteWorkoutExercises(workoutURL);
+    WorkoutJournalFactory.deleteWorkout(workoutURL)
+    .then( (data) => {
+      WorkoutJournalFactory.deleteWorkoutExercises(workoutURL);
+      fetchMyWorkouts();
+    });
+  };
+
+  $scope.logout = () => {
+    UserFactory.logoutUser();
   };
 
 });

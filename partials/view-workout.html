@@ -1,23 +1,23 @@
 <header ng-repeat="workout in workoutArr">
   <nav>
     <div class="nav-wrapper indigo darken-4">
-      <a ng-href="#!/home" class="brand-logo">WORKOUT</a>
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
       <ul class="right">
-        <li ng-show="workout.isCompleted === true"><a ng-href="#!/create-workout"><i class="material-icons yellow-text">add</i></a></li>
-        <li ng-show="workout.isCompleted === false"><a ng-href="#!/edit-workout" class="yellow-text">Edit</a></li>
+        <li ng-show="workout.isCompleted === true"><a ng-href="#!/create-workout"><i class="material-icons yellow-text text-accent-4">add</i></a></li>
+        <li ng-show="workout.isCompleted === false"><a ng-click="editWorkout()" class="yellow-text text-accent-4"><i class="material-icons yellow-text text-accent-4">edit</i></a></li>
       </ul>
       <ul class="left">
-        <li><a ng-href="#!/home"><i class="material-icons yellow-text">arrow_back</i></a></li>
+        <li><a ng-href="#!/home"><i class="material-icons yellow-text text-accent-4">home</i></a></li>
       </ul>
     </div>
   </nav>
   <div>
-    <h5 class="metal indigo-text text-darken-4">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+    <h5 class="metal indigo-text text-darken-4">{{workout.name}}<br>Day {{workout.day}}<br>{{workout.goal}}</h5>
   </div>
 </header>
 
 <div class="container">
-  <main>
+  <main class="indigo-text text-darken-4">
     <div ng-repeat="exercise in workoutExercisesArr">
       <div class="section">
         <h5>{{exercise.name}}</h5>
@@ -59,8 +59,8 @@
       <div class="divider"></div>
       </div>
     </div>
-      <div ng-hide="exercise.compReps1" class="row">
-        <a ng-click="startWorkout()" class="yellow accent-4 col s12 waves-effect waves-light btn indigo-text">START WORKOUT</a>
+      <div ng-repeat="workout in workoutArr" ng-show="workout.isCompleted === false" class="row fixed-action-btn">
+        <a ng-click="startWorkout()" class="yellow accent-4 col s12 waves-effect waves-light btn indigo-text"><strong>START WORKOUT</strong></a>
       </div>
   </main>
 </div>

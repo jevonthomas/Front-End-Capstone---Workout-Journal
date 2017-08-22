@@ -1,0 +1,107 @@
+<header>
+  <nav>
+    <div class="nav-wrapper indigo darken-4">
+      <a ng-href="#!/home" class="brand-logo center"><img src="../images/logoname.png"></a>
+      <ul class="right">
+        <li><a ng-href="#!/create-workout"><i class="material-icons yellow-text text-accent-4">add</i></a></li>
+      </ul>
+      <ul class="left">
+        <li><a ng-click="goBack()"><i class="material-icons yellow-text text-accent-4">arrow_back</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div ng-repeat="workout in workoutArr">
+    <h5 class="metal indigo-text text-darken-4">Day {{workout.day}}<br>{{workout.date}}<br>{{workout.goal}}</h5>
+  </div>
+</header>
+
+<div class="container">
+	<div id="set" class="row">
+
+		<div class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 1</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.planReps1">
+      </div>
+      <div input-field class="col s6">
+        <label>Wt:</label>
+        <input type="number" ng-model="exercise.planWt1">
+      </div>
+    </div>
+
+		<div class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 2</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.planReps2">
+      </div>
+      <div input-field class="col s6">
+        <label>Wt:</label>
+        <input type="number" ng-model="exercise.planWt2">
+      </div>
+    </div>
+
+		<div class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 3</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.planReps3">
+      </div>
+      <div input-field class="col s6">
+        <label>Wt:</label>
+        <input type="number" ng-model="exercise.planWt3">
+      </div>
+    </div>
+
+		<div class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 4</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.planReps4">
+      </div>
+      <div input-field class="col s6">
+        <label>Wt:</label>
+        <input type="number" ng-model="exercise.planWt4">
+      </div>
+    </div>
+
+		<div class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 5</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.planReps5">
+      </div>
+      <div input-field class="col s6">
+        <label>Wt:</label>
+        <input type="number" ng-model="exercise.planWt5">
+      </div>
+    </div>
+
+		<div class="card indigo darken-4 white-text col s4">
+      <div class="col s12">
+        <h5>Set 6</h5>
+      </div>
+      <div input-field class="col s6">
+        <label>Reps:</label>
+        <input type="number" ng-model="exercise.planReps6">
+      </div>
+      <div input-field class="col s6">
+        <label>Wt:</label>
+        <input type="number" ng-model="exercise.planWt6">
+      </div>
+    </div>
+
+	</div>
+<button ng-click="saveMyWorkout()">Save</button>
+</div>
